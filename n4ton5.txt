@@ -1,0 +1,1330 @@
+Kanji,Reading,Level,English
+あ,あ,4,ah / oh
+ああ,ああ,4,ah / oh
+あいさつ,あいさつ,4,greeting
+間,あいだ,4,between / space / interval
+合う,あう,4,to match / to fit
+あかちゃん,あかちゃん,4,baby
+上る,あがる,4,to go up / to rise
+赤ん坊,あかんぼう,4,baby
+空く,あく,4,to become empty / to be vacant
+アクセサリー,アクセサリー,4,accessory
+あげる,あげる,4,to give / to raise
+浅い,あさい,4,shallow
+味,あじ,4,taste / flavor
+アジア,アジア,4,Asia
+明日,あす,4,tomorrow
+遊び,あそび,4,play / game
+集る,あつまる,4,to gather (same as 集まる)
+集める,あつめる,4,to collect
+アナウンサー,アナウンサー,4,announcer
+アフリカ,アフリカ,4,Africa
+アメリカ,アメリカ,4,America
+謝る,あやまる,4,to apologize
+アルコール,アルコール,4,alcohol
+アルバイト,アルバイト,4,part-time job
+安心,あんしん,4,relief / peace of mind
+安全,あんぜん,4,safety
+あんな,あんな,4,that sort of
+案内,あんない,4,guidance / to guide
+以下,いか,4,below / less than
+以外,いがい,4,except / outside of
+医学,いがく,4,medical science
+生きる,いきる,4,to live
+意見,いけん,4,opinion
+石,いし,4,stone
+いじめる,いじめる,4,to tease / to bully
+以上,いじょう,4,more than / above
+急ぐ,いそぐ,4,to hurry
+致す,いたす,4,to do (humble)
+いただく,いただく,4,to receive / to eat/drink (humble)
+一度,いちど,4,once / one time
+一生懸命,いっしょうけんめい,4,with great effort
+いっぱい,いっぱい,4,full / a lot
+糸,いと,4,thread
+以内,いない,4,within / less than
+田舎,いなか,4,countryside
+祈る,いのる,4,to pray
+いらっしゃる,いらっしゃる,4,to come / to go / to be (honorific)
+植える,うえる,4,to plant
+うかがう,うかがう,4,to ask / to visit (humble)
+受付,うけつけ,4,reception desk
+受ける,うける,4,to receive / to take
+動く,うごく,4,to move
+うそ,うそ,4,lie / falsehood
+うち,うち,4,inside / home
+打つ,うつ,4,to hit / to strike
+美しい,うつくしい,4,beautiful
+写す,うつす,4,to copy / to photograph
+移る,うつる,4,to move / to shift
+腕,うで,4,arm / skill
+うまい,うまい,4,skillful / delicious
+裏,うら,4,back / reverse side
+売り場,うりば,4,selling counter
+うれしい,うれしい,4,happy / glad
+うん,うん,4,yes / uh-huh
+運転,うんてん,4,driving
+運転手,うんてんしゅ,4,driver
+運動,うんどう,4,exercise / sports
+エスカレーター,エスカレーター,4,escalator
+枝,えだ,4,branch
+選ぶ,えらぶ,4,to choose
+遠慮,えんりょ,4,reserve / restraint
+おいでになる,おいでになる,4,to come / to go (honorific)
+お祝い,おいわい,4,celebration / congratulation
+オートバイ,オートバイ,4,motorcycle
+おかげ,おかげ,4,thanks to
+おかしい,おかしい,4,funny / strange
+億,おく,4,hundred million
+屋上,おくじょう,4,rooftop
+贈り物,おくりもの,4,gift / present
+送る,おくる,4,to send
+遅れる,おくれる,4,to be late
+起す,おこす,4,to raise / to cause
+行う,おこなう,4,to do / to perform
+怒る,おこる,4,to get angry
+押し入れ,おしいれ,4,closet
+お嬢さん,おじょうさん,4,daughter / young lady
+お宅,おたく,4,your house / you
+落る,おちる,4,to fall
+おっしゃる,おっしゃる,4,to say (honorific)
+夫,おっと,4,husband
+おつり,おつり,4,change (money)
+音,おと,4,sound
+落す,おとす,4,to drop
+踊り,おどり,4,dance
+踊る,おどる,4,to dance
+驚く,おどろく,4,to be surprised
+お祭り,おまつり,4,festival
+お見舞い,おみまい,4,visit to express sympathy
+お土産,おみやげ,4,souvenir
+思い出す,おもいだす,4,to recall
+思う,おもう,4,to think
+おもちゃ,おもちゃ,4,toy
+表,おもて,4,surface / front
+親,おや,4,parent
+下りる,おりる,4,to descend / to get off
+折る,おる,4,to break / to fold
+お礼,おれい,4,thanks / expression of gratitude
+折れる,おれる,4,to break / to yield
+終わり,おわり,4,end
+カーテン,カーテン,4,curtain
+海岸,かいがん,4,coast / beach
+会議,かいぎ,4,meeting / conference
+会議室,かいぎしつ,4,conference room
+会場,かいじょう,4,meeting place / venue
+会話,かいわ,4,conversation
+帰り,かえり,4,return / way back
+変える,かえる,4,to change
+科学,かがく,4,science
+鏡,かがみ,4,mirror
+掛ける,かける,4,to hang / to set (table)
+飾る,かざる,4,to decorate
+火事,かじ,4,fire (accidental)
+ガス,ガス,4,gas
+ガソリン,ガソリン,4,gasoline
+ガソリンスタンド,ガソリンスタンド,4,gas station
+堅,かたい,4,hard / solid (alternative spelling)
+硬,かたい,4,hard
+固い,かたい,4,hard / firm
+形,かたち,4,shape / form
+片付ける,かたづける,4,to tidy up
+課長,かちょう,4,section manager
+勝つ,かつ,4,to win
+かっこう,かっこう,4,shape / appearance
+家内,かない,4,wife (humble)
+悲しい,かなしい,4,sad
+必ず,かならず,4,without fail
+金持ち,かねもち,4,rich person
+彼女,かのじょ,4,she / girlfriend
+壁,かべ,4,wall
+かまう,かまう,4,to mind / to care about
+髪,かみ,4,hair
+噛む,かむ,4,to bite
+通う,かよう,4,to commute / to attend
+ガラス,ガラス,4,glass
+彼,かれ,4,he / boyfriend
+彼ら,かれら,4,they (male)
+乾く,かわく,4,to get dry
+代わり,かわり,4,substitute / instead
+変わる,かわる,4,to change
+考える,かんがえる,4,to think / to consider
+関係,かんけい,4,relation / connection
+看護婦,かんごふ,4,nurse
+簡単,かんたん,4,simple / easy
+気,き,4,spirit / mood / attention
+機会,きかい,4,opportunity / chance
+危険,きけん,4,dangerous / risk
+聞こえる,きこえる,4,to be heard
+汽車,きしゃ,4,steam train
+技術,ぎじゅつ,4,technology / skill
+季節,きせつ,4,season
+規則,きそく,4,rule / regulation
+きっと,きっと,4,surely
+絹,きぬ,4,silk
+厳しい,きびしい,4,severe / strict
+気分,きぶん,4,feeling / mood
+決る,きまる,4,to be decided
+君,きみ,4,you (male)
+決める,きめる,4,to decide
+気持ち,きもち,4,feeling / sensation
+着物,きもの,4,kimono
+客,きゃく,4,guest / customer
+急,きゅう,4,sudden / steep / urgent
+急行,きゅうこう,4,express train
+教育,きょういく,4,education
+教会,きょうかい,4,church
+競争,きょうそう,4,competition / race
+興味,きょうみ,4,interest / curiosity
+近所,きんじょ,4,neighborhood
+具合,ぐあい,4,condition / state
+空気,くうき,4,air / atmosphere
+空港,くうこう,4,airport
+草,くさ,4,grass / weed
+くださる,くださる,4,to give (honorific)
+首,くび,4,neck
+雲,くも,4,cloud
+比べる,くらべる,4,to compare
+くれる,くれる,4,to give (to me)
+暮れる,くれる,4,to get dark / to end
+君,くん,4,Mr. (suffix)
+毛,け,4,hair / fur
+計画,けいかく,4,plan
+経験,けいけん,4,experience
+経済,けいざい,4,economy
+警察,けいさつ,4,police
+ケーキ,ケーキ,4,cake
+けが,けが,4,injury
+景色,けしき,4,scenery
+消しゴム,けしゴム,4,eraser
+下宿,げしゅく,4,boarding house
+決して,けっして,4,never (with negative)
+けれど,けれど,4,however / but
+けれども,けれども,4,however / but
+原因,げんいん,4,cause / reason
+けんか,けんか,4,fight / quarrel
+研究,けんきゅう,4,research / study
+研究室,けんきゅうしつ,4,laboratory / study room
+見物,けんぶつ,4,sightseeing
+子,こ,4,child
+こう,こう,4,thus / like this
+郊外,こうがい,4,suburb
+講義,こうぎ,4,lecture
+工業,こうぎょう,4,industry
+高校,こうこう,4,high school
+高校生,こうこうせい,4,high school student
+工場,こうじょう,4,factory
+校長,こうちょう,4,principal (school)
+交通,こうつう,4,traffic
+講堂,こうどう,4,auditorium
+高等学校,こうとうがっこう,4,high school
+公務員,こうむいん,4,civil servant
+国際,こくさい,4,international
+心,こころ,4,heart / mind
+御主人,ごしゅじん,4,your husband / master
+故障,こしょう,4,breakdown / trouble
+ご存じ,ごぞんじ,4,known (honorific)
+答,こたえ,4,answer
+ごちそう,ごちそう,4,feast / treat
+こと,こと,4,thing / matter
+小鳥,ことり,4,small bird
+このあいだ,このあいだ,4,the other day
+このごろ,このごろ,4,these days / recently
+細かい,こまかい,4,small / fine / detailed
+ごみ,ごみ,4,trash / garbage
+込む,こむ,4,to be crowded
+米,こめ,4,rice (uncooked)
+ごらんになる,ごらんになる,4,to see (honorific)
+これから,これから,4,after this / from now on
+怖い,こわい,4,scary / afraid
+壊す,こわす,4,to break / to destroy
+壊れる,こわれる,4,to be broken
+コンサート,コンサート,4,concert
+今度,こんど,4,this time / next time
+コンピュータ,コンピュータ,4,computer
+コンピューター,コンピューター,4,computer
+今夜,こんや,4,tonight
+最近,さいきん,4,recently
+最後,さいご,4,last / end
+最初,さいしょ,4,beginning / first
+坂,さか,4,slope / hill
+探す,さがす,4,to search / to look for
+下る,さがる,4,to go down / to descend
+盛ん,さかん,4,popular / prosperous
+下げる,さげる,4,to lower / to hang
+差し上げる,さしあげる,4,to give (humble)
+さっき,さっき,4,a while ago
+寂しい,さびしい,4,lonely
+さ来月,さらいげつ,4,month after next
+さ来週,さらいしゅう,4,week after next
+サラダ,サラダ,4,salad
+騒ぐ,さわぐ,4,to make noise
+触る,さわる,4,to touch
+産業,さんぎょう,4,industry
+サンダル,サンダル,4,sandals
+サンドイッチ,サンドイッチ,4,sandwich
+残念,ざんねん,4,regrettable / too bad
+市,し,4,city
+字,じ,4,character / letter
+試合,しあい,4,match / game
+仕方,しかた,4,way / method
+しかる,しかる,4,to scold
+試験,しけん,4,exam / test
+事故,じこ,4,accident
+地震,じしん,4,earthquake
+時代,じだい,4,era / period
+下着,したぎ,4,underwear
+支度,したく,4,preparation
+しっかり,しっかり,4,firmly / properly
+失敗,しっぱい,4,failure
+辞典,じてん,4,dictionary
+品物,しなもの,4,goods / article
+しばらく,しばらく,4,for a while
+島,しま,4,island
+市民,しみん,4,citizen
+事務所,じむしょ,4,office
+社会,しゃかい,4,society
+社長,しゃちょう,4,company president
+じゃま,じゃま,4,obstacle / disturbance
+ジャム,ジャム,4,jam
+自由,じゆう,4,freedom
+習慣,しゅうかん,4,habit / custom
+住所,じゅうしょ,4,address
+柔道,じゅうどう,4,judo
+十分,じゅうぶん,4,enough / sufficient
+出席,しゅっせき,4,attendance
+出発,しゅっぱつ,4,departure
+趣味,しゅみ,4,hobby
+準備,じゅんび,4,preparation
+紹介,しょうかい,4,introduction
+小学校,しょうがっこう,4,elementary school
+小説,しょうせつ,4,novel
+招待,しょうたい,4,invitation
+承知,しょうち,4,knowledge / consent
+将来,しょうらい,4,future
+食事,しょくじ,4,meal
+食料品,しょくりょうひん,4,groceries
+女性,じょせい,4,female / woman
+知らせる,しらせる,4,to notify
+調べる,しらべる,4,to investigate
+人口,じんこう,4,population
+神社,じんじゃ,4,Shinto shrine
+親切,しんせつ,4,kind / helpful
+心配,しんぱい,4,worry / concern
+新聞社,しんぶんしゃ,4,newspaper company
+水泳,すいえい,4,swimming
+水道,すいどう,4,water supply / tap water
+ずいぶん,ずいぶん,4,very / quite
+数学,すうがく,4,mathematics
+スーツ,スーツ,4,suit
+スーツケース,スーツケース,4,suitcase
+過ぎる,すぎる,4,to pass / to exceed
+すく,すく,4,to be empty / to become less
+スクリーン,スクリーン,4,screen
+凄い,すごい,4,amazing / terrible
+進む,すすむ,4,to advance
+すっかり,すっかり,4,completely / all
+すっと,すっと,4,smoothly / straight
+ステーキ,ステーキ,4,steak
+捨てる,すてる,4,to throw away
+ステレオ,ステレオ,4,stereo
+砂,すな,4,sand
+すばらしい,すばらしい,4,wonderful
+滑る,すべる,4,to slide / to slip
+隅,すみ,4,corner
+済む,すむ,4,to finish / to be done
+すり,すり,4,pickpocket
+すると,すると,4,then / thereupon
+生活,せいかつ,4,life / living
+生産,せいさん,4,production
+政治,せいじ,4,politics
+西洋,せいよう,4,Western world
+世界,せかい,4,world
+席,せき,4,seat
+説明,せつめい,4,explanation
+背中,せなか,4,back (body part)
+ぜひ,ぜひ,4,by all means / certainly
+世話,せわ,4,care / help
+線,せん,4,line
+ぜんぜん,ぜんぜん,4,not at all (with negative)
+戦争,せんそう,4,war
+先輩,せんぱい,4,senior / elder
+そう,そう,4,so / like that / yes
+相談,そうだん,4,consultation
+育てる,そだてる,4,to raise / to bring up
+卒業,そつぎょう,4,graduation
+祖父,そふ,4,grandfather
+ソフト,ソフト,4,soft
+祖母,そぼ,4,grandmother
+それで,それで,4,therefore / and then
+それに,それに,4,besides / moreover
+それほど,それほど,4,so much / to that extent
+そろそろ,そろそろ,4,gradually / soon
+そんな,そんな,4,such / that kind of
+そんなに,そんなに,4,so / so much
+退院,たいいん,4,discharge from hospital
+大学生,だいがくせい,4,college student
+大事,だいじ,4,important / precious
+大体,だいたい,4,roughly / mostly
+たいてい,たいてい,4,usually / generally
+タイプ,タイプ,4,type
+大分,だいぶ,4,considerably
+台風,たいふう,4,typhoon
+倒れる,たおれる,4,to fall / to collapse
+だから,だから,4,therefore / so
+確か,たしか,4,sure / certain
+足す,たす,4,to add
+訪ねる,たずねる,4,to visit / to call on
+尋ねる,たずねる,4,to ask / to inquire
+正しい,ただしい,4,correct / right
+畳,たたみ,4,tatami mat
+立てる,たてる,4,to stand / to set up
+建てる,たてる,4,to build
+例えば,たとえば,4,for example
+棚,たな,4,shelf
+楽しみ,たのしみ,4,enjoyment / pleasure
+楽む,たのしむ,4,to enjoy
+たまに,たまに,4,occasionally
+為,ため,4,for the sake of / because
+だめ,だめ,4,no good / useless
+足りる,たりる,4,to be sufficient
+男性,だんせい,4,male
+暖房,だんぼう,4,heating
+血,ち,4,blood
+チェック,チェック,4,check
+力,ちから,4,strength / power
+ちっとも,ちっとも,4,not at all (with negative)
+ちゃん,ちゃん,4,suffix for names (endearing)
+注意,ちゅうい,4,attention / caution
+中学校,ちゅうがっこう,4,junior high school
+注射,ちゅうしゃ,4,injection
+駐車場,ちゅうしゃじょう,4,parking lot
+地理,ちり,4,geography
+捕まえる,つかまえる,4,to catch / to seize
+つき,つき,4,moon / month
+付く,つく,4,to be attached / to follow
+漬ける,つける,4,to pickle / to soak
+都合,つごう,4,circumstances / convenience
+伝える,つたえる,4,to convey / to report
+続く,つづく,4,to continue
+続ける,つづける,4,to continue (transitive)
+包む,つつむ,4,to wrap
+妻,つま,4,wife
+つもり,つもり,4,intention / plan
+釣る,つる,4,to fish / to angle
+連れる,つれる,4,to bring / to take (someone)
+丁寧,ていねい,4,polite / courteous
+テキスト,テキスト,4,textbook
+適当,てきとう,4,suitable / appropriate
+できるだけ,できるだけ,4,as much as possible
+手伝う,てつだう,4,to help / to assist
+テニス,テニス,4,tennis
+手袋,てぶくろ,4,gloves
+寺,てら,4,Buddhist temple
+点,てん,4,point / dot
+店員,てんいん,4,clerk / shop assistant
+天気予報,てんきよほう,4,weather forecast
+電灯,でんとう,4,electric light
+電報,でんぽう,4,telegram
+展覧会,てんらんかい,4,exhibition
+都,と,4,metropolis / capital
+道具,どうぐ,4,tool / instrument
+とうとう,とうとう,4,finally / eventually
+動物園,どうぶつえん,4,zoo
+遠く,とおく,4,far away / distance
+通る,とおる,4,to go through / to pass
+特に,とくに,4,especially
+特別,とくべつ,4,special
+とこや,とこや,4,barbershop
+途中,とちゅう,4,on the way / midway
+特急,とっきゅう,4,limited express (train)
+届ける,とどける,4,to deliver
+泊まる,とまる,4,to stay (overnight)
+止める,とめる,4,to stop (transitive)
+取り替える,とりかえる,4,to exchange / to replace
+泥棒,どろぼう,4,thief
+どんどん,どんどん,4,rapidly / continuously
+直す,なおす,4,to fix / to cure
+直る,なおる,4,to be fixed / to be cured
+治る,なおる,4,to be cured / to heal
+中々,なかなか,4,quite / very (also with negative: not easily)
+泣く,なく,4,to cry
+無くなる,なくなる,4,to be lost / to disappear
+亡くなる,なくなる,4,to die
+投げる,なげる,4,to throw
+なさる,なさる,4,to do (honorific)
+鳴る,なる,4,to ring / to sound
+なるべく,なるべく,4,as far as possible
+なるほど,なるほど,4,indeed / I see
+慣れる,なれる,4,to get used to
+におい,におい,4,smell / odor
+苦い,にがい,4,bitter
+二階建て,にかいだて,4,two-story building
+逃げる,にげる,4,to escape
+日記,にっき,4,diary
+入院,にゅういん,4,hospitalization
+入学,にゅうがく,4,school admission
+似る,にる,4,to resemble
+人形,にんぎょう,4,doll
+盗む,ぬすむ,4,to steal
+塗る,ぬる,4,to paint / to apply
+ぬれる,ぬれる,4,to get wet
+ねだん,ねだん,4,price
+熱,ねつ,4,fever / heat
+ねっしん,ねっしん,4,enthusiasm / zeal
+寝坊,ねぼう,4,oversleeping
+眠い,ねむい,4,sleepy
+眠る,ねむる,4,to sleep
+残る,のこる,4,to remain / to be left
+のど,のど,4,throat
+乗り換える,のりかえる,4,to transfer (trains)
+乗り物,のりもの,4,vehicle
+葉,は,4,leaf
+場合,ばあい,4,case / situation
+パート,パート,4,part-time
+倍,ばい,4,double / times
+拝見,はいけん,4,(humble) to see / to look
+歯医者,はいしゃ,4,dentist
+運ぶ,はこぶ,4,to carry / to transport
+始める,はじめる,4,to begin (transitive)
+場所,ばしょ,4,place / location
+はず,はず,4,expectation / should be
+恥ずかしい,はずかしい,4,embarrassed / shy
+パソコン,パソコン,4,personal computer
+発音,はつおん,4,pronunciation
+はっきり,はっきり,4,clearly / distinctly
+花見,はなみ,4,cherry blossom viewing
+林,はやし,4,grove / forest
+払う,はらう,4,to pay
+番組,ばんぐみ,4,TV program
+反対,はんたい,4,opposite / opposition
+ハンドバッグ,ハンドバッグ,4,handbag
+日,ひ,4,day / sun
+火,ひ,4,fire
+ピアノ,ピアノ,4,piano
+冷える,ひえる,4,to grow cold
+光,ひかり,4,light
+光る,ひかる,4,to shine
+引き出し,ひきだし,4,drawer
+引き出す,ひきだす,4,to pull out
+ひげ,ひげ,4,beard / mustache
+飛行場,ひこうじょう,4,airport
+久しぶり,ひさしぶり,4,after a long time
+美術館,びじゅつかん,4,art museum
+非常に,ひじょうに,4,extremely / very
+びっくり,びっくり,4,to be surprised
+引っ越す,ひっこす,4,to move (house)
+必要,ひつよう,4,necessary
+ひどい,ひどい,4,terrible / severe
+開く,ひらく,4,to open
+ビル,ビル,4,building
+昼間,ひるま,4,daytime
+昼休み,ひるやすみ,4,lunch break
+拾う,ひろう,4,to pick up
+ファックス,ファックス,4,fax
+増える,ふえる,4,to increase
+深い,ふかい,4,deep
+複雑,ふくざつ,4,complex / complicated
+復習,ふくしゅう,4,review (study)
+部長,ぶちょう,4,section chief
+普通,ふつう,4,normal / ordinary
+ぶどう,ぶどう,4,grape
+太る,ふとる,4,to become fat
+布団,ふとん,4,futon / bedding
+舟,ふね,4,boat / ship
+不便,ふべん,4,inconvenient
+踏む,ふむ,4,to step on
+降り出す,ふりだす,4,to start raining
+プレゼント,プレゼント,4,gift / present
+文化,ぶんか,4,culture
+文学,ぶんがく,4,literature
+文法,ぶんぽう,4,grammar
+別,べつ,4,separate / different
+ベル,ベル,4,bell
+変,へん,4,strange / odd
+返事,へんじ,4,reply / answer
+貿易,ぼうえき,4,trade / commerce
+放送,ほうそう,4,broadcast
+法律,ほうりつ,4,law
+僕,ぼく,4,I (male)
+星,ほし,4,star
+ほど,ほど,4,degree / extent
+ほとんど,ほとんど,4,almost / mostly
+ほめる,ほめる,4,to praise
+翻訳,ほんやく,4,translation
+参る,まいる,4,to go / to come (humble)
+負ける,まける,4,to lose (a game)
+まじめ,まじめ,4,serious / diligent
+まず,まず,4,first of all
+または,または,4,or
+間違える,まちがえる,4,to make a mistake
+間に合う,まにあう,4,to be in time
+周り,まわり,4,surroundings / circumference
+回る,まわる,4,to go around
+漫画,まんが,4,comic / manga
+真中,まんなか,4,center / middle
+見える,みえる,4,to be visible
+湖,みずうみ,4,lake
+味噌,みそ,4,miso (fermented soybean paste)
+見つかる,みつかる,4,to be found
+見つける,みつける,4,to find
+皆,みな,4,everyone
+港,みなと,4,port / harbor
+向かう,むかう,4,to face / to go toward
+迎える,むかえる,4,to welcome / to meet
+昔,むかし,4,olden times / the past
+虫,むし,4,insect / bug
+息子,むすこ,4,son
+娘,むすめ,4,daughter
+無理,むり,4,impossible / unreasonable
+召し上がる,めしあがる,4,to eat / to drink (honorific)
+珍しい,めずらしい,4,rare / unusual
+申し上げる,もうしあげる,4,to say / to state (humble)
+申す,もうす,4,to say (humble)
+もうすぐ,もうすぐ,4,very soon
+もし,もし,4,if
+もちろん,もちろん,4,of course
+もっとも,もっとも,4,most / extremely
+戻る,もどる,4,to return / to go back
+木綿,もめん,4,cotton
+もらう,もらう,4,to receive
+森,もり,4,forest
+焼く,やく,4,to bake / to burn
+約束,やくそく,4,promise
+役に立つ,やくにたつ,4,to be useful
+焼ける,やける,4,to be baked / to burn
+優しい,やさしい,4,kind / gentle
+痩せる,やせる,4,to lose weight
+やっと,やっと,4,finally / at last
+やはり,やはり,4,also / as expected
+やっぱり,やっぱり,4,also / as expected (coll.)
+止む,やむ,4,to stop (rain etc.)
+止める,やめる,4,to quit / to stop
+柔らかい,やわらかい,4,soft / tender
+湯,ゆ,4,hot water
+輸出,ゆしゅつ,4,export
+輸入,ゆにゅう,4,import
+指,ゆび,4,finger / toe
+指輪,ゆびわ,4,ring (jewelry)
+夢,ゆめ,4,dream
+揺れる,ゆれる,4,to shake / to sway
+用,よう,4,use / business
+用意,ようい,4,preparation
+用事,ようじ,4,errand / business
+汚れる,よごれる,4,to get dirty
+予習,よしゅう,4,preparation (for a lesson)
+予定,よてい,4,schedule / plan
+予約,よやく,4,reservation
+寄る,よる,4,to drop by / to visit
+喜ぶ,よろこぶ,4,to be delighted
+よろしい,よろしい,4,good / all right (polite)
+理由,りゆう,4,reason
+利用,りよう,4,use / utilization
+両方,りょうほう,4,both sides / both
+旅館,りょかん,4,Japanese inn
+留守,るす,4,absence / away from home
+冷房,れいぼう,4,air conditioning
+歴史,れきし,4,history
+レジ,レジ,4,cash register
+レポート,レポート,4,report
+リポート,リポート,4,report
+連絡,れんらく,4,contact / communication
+ワープロ,ワープロ,4,word processor
+沸かす,わかす,4,to boil (water)
+別れる,わかれる,4,to part / to separate
+沸く,わく,4,to boil / to be excited
+訳,わけ,4,meaning / reason
+忘れ物,わすれもの,4,lost item
+笑う,わらう,4,to laugh
+割合,わりあい,4,percentage / proportion
+割れる,われる,4,to break / to split
+泳ぎ方,およぎかた,4,way of swimming
+会う,あう,5,to meet
+青,あお,5,blue
+青い,あおい,5,blue
+赤,あか,5,red
+赤い,あかい,5,red
+明い,あかるい,5,bright / light
+秋,あき,5,autumn
+開く,あく,5,to open (intransitive)
+開ける,あける,5,to open (transitive)
+上げる,あげる,5,to raise
+朝,あさ,5,morning
+朝御飯,あさごはん,5,breakfast
+あさって,あさって,5,day after tomorrow
+足,あし,5,foot / leg
+明日,あした,5,tomorrow
+あそこ,あそこ,5,over there
+遊ぶ,あそぶ,5,to play
+暖かい,あたたかい,5,warm
+頭,あたま,5,head
+新しい,あたらしい,5,new
+あちら,あちら,5,that way / over there
+暑い,あつい,5,hot (weather)
+熱い,あつい,5,hot (to touch)
+厚い,あつい,5,thick
+あっち,あっち,5,that way (coll.)
+後,あと,5,after / later / rear
+あなた,あなた,5,you
+兄,あに,5,older brother
+姉,あね,5,older sister
+あの,あの,5,that (over there)
+アパート,アパート,5,apartment
+あびる,あびる,5,to bathe / to shower
+危ない,あぶない,5,dangerous
+甘い,あまい,5,sweet
+あまり,あまり,5,not very (with negative) / too much
+雨,あめ,5,rain
+飴,あめ,5,candy
+洗う,あらう,5,to wash
+ある,ある,5,to exist (inanimate) / to have
+歩く,あるく,5,to walk
+あれ,あれ,5,that over there
+いい,いい,5,good
+よい,よい,5,good
+いいえ,いいえ,5,no
+言う,いう,5,to say
+家,いえ,5,house
+いかが,いかが,5,how (polite)
+行く,いく,5,to go
+いくつ,いくつ,5,how many / how old
+いくら,いくら,5,how much
+池,いけ,5,pond
+医者,いしゃ,5,doctor
+いす,いす,5,chair
+忙しい,いそがしい,5,busy
+痛い,いたい,5,painful
+一,いち,5,one
+一日,いちにち,5,one day
+いちばん,いちばん,5,number one / best
+いつ,いつ,5,when
+五日,いつか,5,fifth day / five days
+一緒,いっしょ,5,together
+五つ,いつつ,5,five (things)
+いつも,いつも,5,always
+犬,いぬ,5,dog
+今,いま,5,now
+意味,いみ,5,meaning
+妹,いもうと,5,younger sister
+嫌,いや,5,disagreeable / unpleasant
+入口,いりぐち,5,entrance
+居る,いる,5,to be (animate)
+要る,いる,5,to need
+入れる,いれる,5,to put in
+色,いろ,5,color
+いろいろ,いろいろ,5,various
+上,うえ,5,above / top
+後ろ,うしろ,5,back / behind
+薄い,うすい,5,thin / pale
+歌,うた,5,song
+歌う,うたう,5,to sing
+生まれる,うまれる,5,to be born
+海,うみ,5,sea / ocean
+売る,うる,5,to sell
+煩い,うるさい,5,noisy / annoying
+上着,うわぎ,5,jacket / coat
+絵,え,5,picture / drawing
+映画,えいが,5,movie
+映画館,えいがかん,5,movie theater
+英語,えいご,5,English language
+ええ,ええ,5,yes (coll.)
+駅,えき,5,station
+エレベーター,エレベーター,5,elevator
+鉛筆,えんぴつ,5,pencil
+おいしい,おいしい,5,delicious
+多い,おおい,5,many / much
+大きい,おおきい,5,big / large
+大きな,おおきな,5,big (attributive)
+大勢,おおぜい,5,crowd / many people
+お母さん,おかあさん,5,mother
+お菓子,おかし,5,sweets / candy
+お金,おかね,5,money
+起きる,おきる,5,to wake up / to happen
+置く,おく,5,to put / to place
+奥さん,おくさん,5,wife (someone else's)
+お酒,おさけ,5,sake / alcohol
+お皿,おさら,5,plate / dish
+伯父,おじいさん,5,grandfather (also 祖父)
+叔父,おじいさん,5,grandfather
+教える,おしえる,5,to teach / to tell
+伯父,おじさん,5,uncle (older)
+叔父,おじさん,5,uncle (younger)
+押す,おす,5,to push
+遅い,おそい,5,slow / late
+お茶,おちゃ,5,tea
+お手洗い,おてあらい,5,toilet / restroom
+お父さん,おとうさん,5,father
+弟,おとうと,5,younger brother
+男,おとこ,5,man
+男の子,おとこのこ,5,boy
+一昨日,おととい,5,day before yesterday
+一昨年,おととし,5,year before last
+大人,おとな,5,adult
+おなか,おなか,5,stomach
+同じ,おなじ,5,same
+お兄さん,おにいさん,5,older brother
+お姉さん,おねえさん,5,older sister
+おばあさん,おばあさん,5,grandmother
+伯母さん,おばさん,5,aunt (older)
+叔母さん,おばさん,5,aunt (younger)
+お風呂,おふろ,5,bath
+お弁当,おべんとう,5,boxed lunch
+覚える,おぼえる,5,to memorize
+おまわりさん,おまわりさん,5,police officer (coll.)
+重い,おもい,5,heavy
+おもしろい,おもしろい,5,interesting / funny
+泳ぐ,およぐ,5,to swim
+降りる,おりる,5,to get off / to descend
+終る,おわる,5,to end / to finish
+音楽,おんがく,5,music
+女,おんな,5,woman
+女の子,おんなのこ,5,girl
+外国,がいこく,5,foreign country
+外国人,がいこくじん,5,foreigner
+会社,かいしゃ,5,company
+階段,かいだん,5,stairs
+買い物,かいもの,5,shopping
+買う,かう,5,to buy
+返す,かえす,5,to return (something)
+帰る,かえる,5,to go back / to return
+かかる,かかる,5,to take (time/money) / to hang
+かぎ,かぎ,5,key
+書く,かく,5,to write
+学生,がくせい,5,student
+かける,かける,5,to hang / to put on (glasses)
+傘,かさ,5,umbrella
+貸す,かす,5,to lend
+風,かぜ,5,wind / cold (illness)
+風邪,かぜ,5,cold (illness)
+家族,かぞく,5,family
+方,かた,5,way / person (polite)
+学校,がっこう,5,school
+カップ,カップ,5,cup
+家庭,かてい,5,household / home
+角,かど,5,corner
+かばん,かばん,5,bag
+花瓶,かびん,5,vase
+紙,かみ,5,paper
+カメラ,カメラ,5,camera
+火曜日,かようび,5,Tuesday
+辛い,からい,5,spicy / hot (taste)
+体,からだ,5,body
+借りる,かりる,5,to borrow
+軽い,かるい,5,light (weight)
+カレー,カレー,5,curry
+カレンダー,カレンダー,5,calendar
+川,かわ,5,river
+河,かわ,5,river
+かわいい,かわいい,5,cute / adorable
+漢字,かんじ,5,Kanji (Chinese characters)
+木,き,5,tree / wood
+黄色,きいろ,5,yellow
+黄色い,きいろい,5,yellow
+消える,きえる,5,to disappear / to go out
+聞く,きく,5,to listen / to ask
+北,きた,5,north
+ギター,ギター,5,guitar
+汚い,きたない,5,dirty
+喫茶店,きっさてん,5,coffee shop / cafe
+切手,きって,5,postage stamp
+切符,きっぷ,5,ticket
+昨日,きのう,5,yesterday
+九,きゅう,5,nine
+九,く,5,nine
+牛肉,ぎゅうにく,5,beef
+牛乳,ぎゅうにゅう,5,milk
+今日,きょう,5,today
+教室,きょうしつ,5,classroom
+兄弟,きょうだい,5,brothers and sisters
+去年,きょねん,5,last year
+嫌い,きらい,5,dislike / hatred
+切る,きる,5,to cut
+着る,きる,5,to wear
+きれい,きれい,5,pretty / clean
+キロ,キロ,5,kilo (kilogram/kilometer)
+キログラム,キログラム,5,kilogram
+キロメートル,キロメートル,5,kilometer
+銀行,ぎんこう,5,bank
+金曜日,きんようび,5,Friday
+薬,くすり,5,medicine
+ください,ください,5,please give me
+果物,くだもの,5,fruit
+口,くち,5,mouth
+靴,くつ,5,shoes
+靴下,くつした,5,socks
+国,くに,5,country
+曇り,くもり,5,cloudy weather
+曇る,くもる,5,to become cloudy
+暗い,くらい,5,dark
+クラス,クラス,5,class (school)
+グラム,グラム,5,gram
+来る,くる,5,to come
+車,くるま,5,car
+黒,くろ,5,black
+黒い,くろい,5,black
+警官,けいかん,5,police officer
+今朝,けさ,5,this morning
+消す,けす,5,to erase / to turn off
+結構,けっこう,5,fine / splendid / enough
+結婚,けっこん,5,marriage
+月曜日,げつようび,5,Monday
+玄関,げんかん,5,entrance hall / front door
+元気,げんき,5,healthy / energetic
+五,ご,5,five
+公園,こうえん,5,park
+交差点,こうさてん,5,intersection
+紅茶,こうちゃ,5,black tea
+交番,こうばん,5,police box
+声,こえ,5,voice
+コート,コート,5,coat
+コーヒー,コーヒー,5,coffee
+ここ,ここ,5,here
+午後,ごご,5,afternoon
+九日,ここのか,5,ninth day of month
+九つ,ここのつ,5,nine (things)
+午前,ごぜん,5,morning / a.m.
+答える,こたえる,5,to answer
+こちら,こちら,5,this way / this person
+こっち,こっち,5,this way (coll.)
+コップ,コップ,5,glass (cup)
+今年,ことし,5,this year
+言葉,ことば,5,word / language
+子供,こども,5,child
+この,この,5,this (before noun)
+御飯,ごはん,5,meal / rice
+コピーする,コピーする,5,to copy
+困る,こまる,5,to be troubled
+これ,これ,5,this
+今月,こんげつ,5,this month
+今週,こんしゅう,5,this week
+こんな,こんな,5,this kind of
+今晩,こんばん,5,tonight
+さあ,さあ,5,come now / well
+財布,さいふ,5,wallet
+魚,さかな,5,fish
+先,さき,5,ahead / previous
+咲く,さく,5,to bloom
+作文,さくぶん,5,composition / essay
+差す,さす,5,to shine (sun) / to raise (umbrella)
+雑誌,ざっし,5,magazine
+砂糖,さとう,5,sugar
+寒い,さむい,5,cold (weather)
+さ来年,さらいねん,5,year after next
+三,さん,5,three
+散歩する,さんぽする,5,to take a walk
+四,し,5,four
+四,よん,5,four
+塩,しお,5,salt
+しかし,しかし,5,however
+時間,じかん,5,time / hour
+仕事,しごと,5,work / job
+辞書,じしょ,5,dictionary
+静か,しずか,5,quiet
+下,した,5,below / under
+七,しち,5,seven
+七,なな,5,seven
+質問,しつもん,5,question
+自転車,じてんしゃ,5,bicycle
+自動車,じどうしゃ,5,car
+死ぬ,しぬ,5,to die
+字引,じびき,5,dictionary (less common)
+自分,じぶん,5,oneself
+閉まる,しまる,5,to be closed
+閉める,しめる,5,to close
+締める,しめる,5,to tighten
+じゃ,じゃ,5,then / well (contraction of では)
+じゃあ,じゃあ,5,then / well
+写真,しゃしん,5,photograph
+シャツ,シャツ,5,shirt
+シャワー,シャワー,5,shower
+十,じゅう,5,ten
+十,とお,5,ten
+授業,じゅぎょう,5,lesson / class
+宿題,しゅくだい,5,homework
+上手,じょうず,5,skillful / good at
+丈夫,じょうぶ,5,strong / healthy
+しょうゆ,しょうゆ,5,soy sauce
+食堂,しょくどう,5,dining hall / cafeteria
+知る,しる,5,to know
+白,しろ,5,white
+白い,しろい,5,white
+新聞,しんぶん,5,newspaper
+水曜日,すいようび,5,Wednesday
+吸う,すう,5,to inhale / to smoke
+スカート,スカート,5,skirt
+好き,すき,5,liking / fondness
+少ない,すくない,5,few / little
+すぐに,すぐに,5,immediately
+少し,すこし,5,a little
+涼しい,すずしい,5,cool (temperature)
+ストーブ,ストーブ,5,stove / heater
+スプーン,スプーン,5,spoon
+スポーツ,スポーツ,5,sports
+ズボン,ズボン,5,trousers / pants
+住む,すむ,5,to live (reside)
+スリッパ,スリッパ,5,slippers
+する,する,5,to do
+座る,すわる,5,to sit
+背,せ,5,height / back (body)
+生徒,せいと,5,student (middle/high school)
+セーター,セーター,5,sweater
+せっけん,せっけん,5,soap
+背広,せびろ,5,business suit
+狭い,せまい,5,narrow
+ゼロ,ゼロ,5,zero
+千,せん,5,thousand
+先月,せんげつ,5,last month
+先週,せんしゅう,5,last week
+先生,せんせい,5,teacher
+洗濯,せんたく,5,laundry
+全部,ぜんぶ,5,all / whole
+掃除する,そうじする,5,to clean
+そうして,そうして,5,and then / so
+そして,そして,5,and then
+そこ,そこ,5,there
+そちら,そちら,5,that way
+そっち,そっち,5,that way (coll.)
+外,そと,5,outside
+その,その,5,that (before noun)
+そば,そば,5,side / near
+空,そら,5,sly
+それ,それ,5,that
+それから,それから,5,after that / and then
+それでは,それでは,5,well then
+大学,だいがく,5,university
+大使館,たいしかん,5,embassy
+大丈夫,だいじょうぶ,5,alright / safe
+大好き,だいすき,5,like very much
+大切,たいせつ,5,important / precious
+台所,だいどころ,5,kitchen
+たいへん,たいへん,5,very / terribly / serious
+高い,たかい,5,high / expensive
+たくさん,たくさん,5,many / a lot
+タクシー,タクシー,5,taxi
+出す,だす,5,to take out / to produce
+立つ,たつ,5,to stand
+たて,たて,5,vertical / length (also 縦)
+建物,たてもの,5,building
+楽しい,たのしい,5,enjoyable / fun
+頼む,たのむ,5,to request / to ask
+たばこ,たばこ,5,tobacco / cigarette
+たぶん,たぶん,5,probably
+食べ物,たべもの,5,food
+食べる,たべる,5,to eat
+卵,たまご,5,egg
+誰,だれ,5,who
+誰か,だれか,5,someone
+誕生日,たんじょうび,5,birthday
+だんだん,だんだん,5,gradually
+小さい,ちいさい,5,small / little
+小さな,ちいさな,5,small (attributive)
+近い,ちかい,5,near / close
+違う,ちがう,5,to differ / wrong
+近く,ちかく,5,nearby / vicinity
+地下鉄,ちかてつ,5,subway
+地図,ちず,5,map
+茶色,ちゃいろ,5,brown
+ちゃわん,ちゃわん,5,rice bowl
+ちょうど,ちょうど,5,exactly / just
+ちょっと,ちょっと,5,a little / somewhat
+一日,ついたち,5,first day of month
+使う,つかう,5,to use
+疲れる,つかれる,5,to get tired
+次,つぎ,5,next
+着く,つく,5,to arrive
+机,つくえ,5,desk
+作る,つくる,5,to make / to create
+つける,つける,5,to attach / to turn on
+勤める,つとめる,5,to work for
+つまらない,つまらない,5,boring / trivial
+冷たい,つめたい,5,cold (to touch)
+強い,つよい,5,strong
+手,て,5,hand
+テープ,テープ,5,tape
+テーブル,テーブル,5,table
+テープレコーダー,テープレコーダー,5,tape recorder
+出かける,でかける,5,to go out
+手紙,てがみ,5,letter
+できる,できる,5,can / to be able
+出口,でぐち,5,exit
+テスト,テスト,5,test
+では,では,5,then / well
+デパート,デパート,5,department store
+でも,でも,5,but / however
+出る,でる,5,to go out / to leave
+テレビ,テレビ,5,TV
+天気,てんき,5,weather
+電気,でんき,5,electricity
+電車,でんしゃ,5,electric train
+電話,でんわ,5,telephone
+戸,と,5,door
+ドア,ドア,5,door
+トイレ,トイレ,5,toilet
+どう,どう,5,how / in what way
+どうして,どうして,5,why
+どうぞ,どうぞ,5,please
+動物,どうぶつ,5,animal
+どうも,どうも,5,thanks / hello / somehow
+遠い,とおい,5,far
+十日,とおか,5,tenth day / ten days
+時々,ときどき,5,sometimes
+時計,とけい,5,clock / watch
+どこ,どこ,5,where
+所,ところ,5,place
+年,とし,5,year
+図書館,としょかん,5,library
+どちら,どちら,5,which way / which one
+どっち,どっち,5,which (coll.)
+とても,とても,5,very / extremely
+どなた,どなた,5,who (polite)
+隣,となり,5,next to / neighbor
+どの,どの,5,which (before noun)
+飛ぶ,とぶ,5,to fly / to jump
+止まる,とまる,5,to stop (intransitive)
+友達,ともだち,5,friend
+土曜日,どようび,5,Saturday
+鳥,とり,5,bird
+とり肉,とりにく,5,chicken meat
+取る,とる,5,to take / to get
+撮る,とる,5,to take (photo)
+どれ,どれ,5,which one
+ナイフ,ナイフ,5,knife
+中,なか,5,inside / middle
+長い,ながい,5,long
+鳴く,なく,5,to cry (animal)
+無くす,なくす,5,to lose / to get rid of
+なぜ,なぜ,5,why
+夏,なつ,5,summer
+夏休み,なつやすみ,5,summer vacation
+など,など,5,such as / etc.
+七つ,ななつ,5,seven (things)
+七日,なのか,5,seventh day / seven days
+名前,なまえ,5,name
+習う,ならう,5,to learn
+並ぶ,ならぶ,5,to line up / to stand in line
+並べる,ならべる,5,to line up (transitive)
+なる,なる,5,to become
+何,なん,5,what
+何,なに,5,what
+二,に,5,two
+賑やか,にぎやか,5,lively / bustling
+肉,にく,5,meat
+西,にし,5,west
+日曜日,にちようび,5,Sunday
+荷物,にもつ,5,baggage / package
+ニュース,ニュース,5,news
+庭,にわ,5,garden
+脱ぐ,ぬぐ,5,to take off (clothes)
+温い,ぬるい,5,lukewarm
+ネクタイ,ネクタイ,5,necktie
+猫,ねこ,5,cat
+寝る,ねる,5,to sleep / to go to bed
+ノート,ノート,5,notebook
+登る,のぼる,5,to climb
+飲み物,のみもの,5,drink / beverage
+飲む,のむ,5,to drink
+乗る,のる,5,to ride / to board
+歯,は,5,tooth
+パーティー,パーティー,5,party
+はい,はい,5,yes
+灰皿,はいざら,5,ashtray
+入る,はいる,5,to enter
+葉書,はがき,5,postcard
+はく,はく,5,to wear (below waist) / to sweep
+箱,はこ,5,box
+橋,はし,5,bridge
+はし,はし,5,chopsticks
+始まる,はじまる,5,to begin (intransitive)
+初め,はじめ,5,beginning
+始め,はじめ,5,beginning
+初めて,はじめて,5,for the first time
+走る,はしる,5,to run
+バス,バス,5,bus
+バター,バター,5,butter
+二十歳,はたち,5,20 years old
+働く,はたらく,5,to work
+八,はち,5,eight
+二十日,はつか,5,20th day / 20 days
+花,はな,5,flower
+鼻,はな,5,nose
+話,はなし,5,story / talk
+話す,はなす,5,to speak / to talk
+早い,はやい,5,early / fast
+速い,はやい,5,fast
+春,はる,5,spring (season)
+貼る,はる,5,to stick / to paste
+晴れ,はれ,5,fair weather
+晴れる,はれる,5,to clear up (weather)
+半,はん,5,half
+晩,ばん,5,evening
+パン,パン,5,bread
+ハンカチ,ハンカチ,5,handkerchief
+番号,ばんごう,5,number
+晩御飯,ばんごはん,5,dinner
+半分,はんぶん,5,half
+東,ひがし,5,east
+引く,ひく,5,to pull / to subtract
+弾く,ひく,5,to play (instrument)
+低い,ひくい,5,low / short
+飛行機,ひこうき,5,airplane
+左,ひだり,5,left
+人,ひと,5,person
+一つ,ひとつ,5,one (thing)
+一月,ひとつき,5,one month
+一人,ひとり,5,one person / alone
+暇,ひま,5,free time / spare time
+百,ひゃく,5,one hundred
+病院,びょういん,5,hospital
+病気,びょうき,5,illness / disease
+昼,ひる,5,afternoon / daytime
+昼御飯,ひるごはん,5,lunch
+広い,ひろい,5,wide / spacious
+フィルム,フィルム,5,film (camera)
+封筒,ふうとう,5,envelope
+プール,プール,5,pool
+フォーク,フォーク,5,fork
+吹く,ふく,5,to blow (wind)
+服,ふく,5,clothes
+二つ,ふたつ,5,two (things)
+豚肉,ぶたにく,5,pork
+二人,ふたり,5,two people
+二日,ふつか,5,second day / two days
+太い,ふとい,5,thick / fat
+冬,ふゆ,5,winter
+降る,ふる,5,to fall (rain/snow)
+古い,ふるい,5,old (not new)
+ふろ,ふろ,5,bath (as in お風呂)
+文章,ぶんしょう,5,sentence / writing
+ページ,ページ,5,page
+下手,へた,5,unskilled / poor at
+ベッド,ベッド,5,bed
+ペット,ペット,5,pet
+部屋,へや,5,room
+辺,へん,5,area / vicinity
+ペン,ペン,5,pen
+勉強する,べんきょうする,5,to study
+便利,べんり,5,convenient
+帽子,ぼうし,5,hat
+ボールペン,ボールペン,5,ballpoint pen
+ほか,ほか,5,other / besides
+ポケット,ポケット,5,pocket
+欲しい,ほしい,5,wanted / desirable
+ポスト,ポスト,5,mailbox / post
+細い,ほそい,5,thin / slender
+ボタン,ボタン,5,button
+ホテル,ホテル,5,hotel
+本,ほん,5,book
+本棚,ほんだな,5,bookshelf
+ほんとう,ほんとう,5,real / true
+毎朝,まいあさ,5,every morning
+毎月,まいげつ,5,every month
+毎月,まいつき,5,every month
+毎週,まいしゅう,5,every week
+毎日,まいにち,5,every day
+毎年,まいねん,5,every year
+毎年,まいとし,5,every year
+毎晩,まいばん,5,every evening
+前,まえ,5,before / front
+曲る,まがる,5,to turn / to bend
+まずい,まずい,5,unappetizing / poor / bad
+また,また,5,again / also
+まだ,まだ,5,still / not yet
+町,まち,5,town / street
+待つ,まつ,5,to wait
+まっすぐ,まっすぐ,5,straight / honest
+マッチ,マッチ,5,match (for fire)
+窓,まど,5,window
+丸い,まるい,5,round / circular
+円い,まるい,5,round
+万,まん,5,ten thousand
+万年筆,まんねんひつ,5,fountain pen
+磨く,みがく,5,to polish / to brush
+右,みぎ,5,right
+短い,みじかい,5,short (length)
+水,みず,5,water
+店,みせ,5,shop / store
+見せる,みせる,5,to show
+道,みち,5,road / way
+三日,みっか,5,third day / three days
+三つ,みっつ,5,three (things)
+緑,みどり,5,green
+皆さん,みなさん,5,everyone (polite)
+南,みなみ,5,south
+耳,みみ,5,ear
+見る,みる,5,to see / to watch
+観る,みる,5,to watch (movie etc.)
+みんな,みんな,5,everyone / all
+六日,むいか,5,sixth day / six days
+向こう,むこう,5,beyond / opposite side
+難しい,むずかしい,5,difficult
+六つ,むっつ,5,six (things)
+村,むら,5,village
+目,め,5,eye
+メートル,メートル,5,meter
+眼鏡,めがね,5,eyeglasses
+もう,もう,5,already / soon / more
+もう一度,もういちど,5,one more time
+木曜日,もくようび,5,Thursday
+持つ,もつ,5,to hold / to have
+もっと,もっと,5,more / further
+物,もの,5,thing
+門,もん,5,gate
+問題,もんだい,5,problem / question
+八百屋,やおや,5,greengrocer
+野菜,やさい,5,vegetable
+易しい,やさしい,5,easy
+安い,やすい,5,cheap / inexpensive
+休み,やすみ,5,rest / vacation
+休む,やすむ,5,to rest / to take a break
+八つ,やっつ,5,eight (things)
+山,やま,5,mountain
+やる,やる,5,to do / to give (to inferiors)
+夕方,ゆうがた,5,evening
+夕飯,ゆうはん,5,dinner
+郵便局,ゆうびんきょく,5,post office
+昨夜,ゆうべ,5,last night / yesterday evening
+有名,ゆうめい,5,famous
+雪,ゆき,5,snow
+行く,ゆく,5,to go (alternative)
+ゆっくりと,ゆっくりと,5,slowly
+八日,ようか,5,eighth day / eight days
+洋服,ようふく,5,Western-style clothes
+よく,よく,5,often / well
+横,よこ,5,side / horizontal
+四日,よっか,5,fourth day / four days
+四つ,よっつ,5,four (things)
+呼ぶ,よぶ,5,to call / to invite
+読む,よむ,5,to read
+夜,よる,5,night / evening
+弱い,よわい,5,weak
+来月,らいげつ,5,next month
+来週,らいしゅう,5,next week
+来年,らいねん,5,next year
+ラジオ,ラジオ,5,radio
+ラジカセ,ラジカセ,5,radio cassette player
+ラジオカセット,ラジオカセット,5,radio cassette recorder
+りっぱ,りっぱ,5,splendid / fine
+留学生,りゅうがくせい,5,international student
+両親,りょうしん,5,parents
+料理,りょうり,5,cooking / dish
+旅行,りょこう,5,travel / trip
+零,れい,5,zero
+冷蔵庫,れいぞうこ,5,refrigerator
+レコード,レコード,5,record
+レストラン,レストラン,5,restaurant
+練習する,れんしゅうする,5,to practice
+廊下,ろうか,5,hallway / corridor
+六,ろく,5,six
+ワイシャツ,ワイシャツ,5,dress shirt
+若い,わかい,5,young
+分かる,わかる,5,to understand
+忘れる,わすれる,5,to forget
+私,わたくし,5,I (formal)
+私,わたし,5,I
+渡す,わたす,5,to hand over / to pass
+渡る,わたる,5,to cross / to go across
+悪い,わるい,5,bad / wrong
+より,より,5,than / from
+より,ほう,5,direction / side (as in よりほう)
+ほう,より,5,side / better
+ほう,ほう,5,side / way

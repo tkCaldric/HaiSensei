@@ -22,6 +22,7 @@ public class JlptVocabDAO {
         vocab.setKanji(rs.getString("kanji"));
         vocab.setReading(rs.getString("reading"));
         vocab.setJlptLevel(rs.getString("jlpt_level"));
+        vocab.setMeaning(rs.getString("meaning"));
         return vocab;
     };
 
@@ -30,11 +31,11 @@ public class JlptVocabDAO {
         String wildQuery = "%" + (query != null ? query.toLowerCase() : "") + "%";
         
         String sql = "SELECT * FROM jlpt_vocab WHERE " +
-                "(LOWER(kanji) LIKE ? OR LOWER(reading) LIKE ?) " +
+                "(LOWER(kanji) LIKE ? OR LOWER(reading) LIKE ? OR LOWER(meaning) LIKE ?) " +
                 "AND jlpt_level LIKE ? " +
                 "ORDER BY jlpt_level ASC, kanji ASC LIMIT 100";
                 
-        return jdbcTemplate.query(sql, rowMapper, wildQuery, wildQuery, levelFilter);
+        return jdbcTemplate.query(sql, rowMapper, wildQuery, wildQuery, wildQuery, levelFilter);
     }
 
     public long count() {

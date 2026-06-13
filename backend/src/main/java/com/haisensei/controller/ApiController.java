@@ -23,12 +23,11 @@ public class ApiController {
     private final SentenceTemplateDAO sentenceTemplateDAO;
     private final EnglishParser englishParser;
     private final JlptVocabDAO jlptVocabDAO;
-    private final JlptKanjiDAO jlptKanjiDAO;
 
     public ApiController(SamplePhraseDAO samplePhraseDAO, TranslationDAO translationDAO,
                          VerbDAO verbDAO, NounDAO nounDAO, GrammaticalFormDAO grammaticalFormDAO,
                          SentenceTemplateDAO sentenceTemplateDAO, EnglishParser englishParser,
-                         JlptVocabDAO jlptVocabDAO, JlptKanjiDAO jlptKanjiDAO) {
+                         JlptVocabDAO jlptVocabDAO) {
         this.samplePhraseDAO = samplePhraseDAO;
         this.translationDAO = translationDAO;
         this.verbDAO = verbDAO;
@@ -37,7 +36,6 @@ public class ApiController {
         this.sentenceTemplateDAO = sentenceTemplateDAO;
         this.englishParser = englishParser;
         this.jlptVocabDAO = jlptVocabDAO;
-        this.jlptKanjiDAO = jlptKanjiDAO;
     }
 
     // 1. Fuzzy search sample phrases & Dynamic English Parsing
@@ -88,13 +86,7 @@ public class ApiController {
         return ResponseEntity.ok(jlptVocabDAO.search(query, level));
     }
 
-    // 5. Dictionary Lookup: JLPT Kanji Search
-    @GetMapping("/jlpt/kanji")
-    public ResponseEntity<List<JlptKanji>> searchJlptKanji(
-            @RequestParam(value = "query", defaultValue = "") String query,
-            @RequestParam(value = "level", defaultValue = "") String level) {
-        return ResponseEntity.ok(jlptKanjiDAO.search(query, level));
-    }
+
 
     // Dropdown helpers to feed SentenceBuilder slots dynamically
     @GetMapping("/verbs")

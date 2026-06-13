@@ -12,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import com.haisensei.dao.JlptVocabDAO;
-import com.haisensei.dao.JlptKanjiDAO;
 
 @SpringBootTest
 class HaisenseiApplicationTests {
@@ -26,8 +25,7 @@ class HaisenseiApplicationTests {
     @Autowired
     private JlptVocabDAO jlptVocabDAO;
 
-    @Autowired
-    private JlptKanjiDAO jlptKanjiDAO;
+
 
     @Test
     void testBuildSentencePolitePresentPositive() {
@@ -126,7 +124,6 @@ class HaisenseiApplicationTests {
 
     @Test
     void testJlptCounts() {
-        assertEquals(1349L, jlptVocabDAO.count());
-        assertEquals(245L, jlptKanjiDAO.count());
+        assertEquals(1329L, jlptVocabDAO.count());
     }
 }

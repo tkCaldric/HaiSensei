@@ -63,12 +63,7 @@ export interface JlptVocab {
   kanji: string;
   reading: string;
   jlptLevel: string;
-}
-
-export interface JlptKanji {
-  id: number;
-  kanji: string;
-  jlptLevel: string;
+  meaning: string;
 }
 
 export interface TranslationRequest {
@@ -119,7 +114,5 @@ export class ApiService {
     return this.http.get<JlptVocab[]>(`${this.baseUrl}/jlpt/vocab?query=${encodeURIComponent(query)}&level=${encodeURIComponent(level)}`);
   }
 
-  searchJlptKanji(query: string, level: string): Observable<JlptKanji[]> {
-    return this.http.get<JlptKanji[]>(`${this.baseUrl}/jlpt/kanji?query=${encodeURIComponent(query)}&level=${encodeURIComponent(level)}`);
-  }
+
 }

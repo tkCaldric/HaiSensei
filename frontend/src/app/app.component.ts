@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Subject, forkJoin } from 'rxjs';
+import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { ApiService, Verb, Noun, GrammaticalForm, SentenceTemplate, SearchResultDTO, TranslationDTO, JlptVocab, JlptKanji } from './api.service';
+import { ApiService, Verb, Noun, GrammaticalForm, SentenceTemplate, SearchResultDTO, TranslationDTO, JlptVocab } from './api.service';
 import { FuriganaPipe } from './furigana.pipe';
 
 @Component({
@@ -35,9 +35,7 @@ export class AppComponent implements OnInit {
   // JLPT reference search variables
   jlptSearchQuery: string = '';
   jlptSelectedLevel: string = ''; // '' for All, 'N5', 'N4'
-  jlptActiveTab: 'vocab' | 'kanji' = 'vocab';
   jlptVocabResults: JlptVocab[] = [];
-  jlptKanjiResults: JlptKanji[] = [];
   isJlptLoading: boolean = false;
   private jlptSearchSubject = new Subject<{query: string, level: string}>();
 
@@ -89,15 +87,11 @@ export class AppComponent implements OnInit {
       debounceTime(300),
       switchMap(params => {
         this.isJlptLoading = true;
-        return forkJoin({
-          vocab: this.apiService.searchJlptVocab(params.query, params.level),
-          kanji: this.apiService.searchJlptKanji(params.query, params.level)
-        });
+        return this.apiService.searchJlptVocab(params.query, params.level);
       })
     ).subscribe({
       next: (results) => {
-        this.jlptVocabResults = results.vocab;
-        this.jlptKanjiResults = results.kanji;
+        this.jlptVocabResults = results;
         this.isJlptLoading = false;
       },
       error: (err) => {
@@ -213,10 +207,7 @@ export class AppComponent implements OnInit {
     this.triggerJlptSearch();
   }
 
-  // Set the active tab in the JLPT dictionary view
-  setJlptActiveTab(tab: 'vocab' | 'kanji'): void {
-    this.jlptActiveTab = tab;
-  }
+
 
   // Display Name Helpers for selected items
   getSelectedTemplateName(): string {

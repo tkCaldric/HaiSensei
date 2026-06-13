@@ -5,6 +5,7 @@ public class JlptVocab {
     private String kanji;
     private String reading;
     private String jlptLevel;
+    private String meaning;
 
     // Getters and Setters
     public Long getId() { return id; }
@@ -18,4 +19,7 @@ public class JlptVocab {
 
     public String getJlptLevel() { return jlptLevel; }
     public void setJlptLevel(String jlptLevel) { this.jlptLevel = jlptLevel; }
+
+    public String getMeaning() { return meaning; }
+    public void setMeaning(String meaning) { this.meaning = meaning; }
 }
