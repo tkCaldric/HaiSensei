@@ -3,9 +3,11 @@ package com.haisensei.controller;
 import com.haisensei.dao.*;
 import com.haisensei.dto.*;
 import com.haisensei.model.*;
+import com.haisensei.service.EnglishParser;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -19,22 +21,37 @@ public class ApiController {
     private final NounDAO nounDAO;
     private final GrammaticalFormDAO grammaticalFormDAO;
     private final SentenceTemplateDAO sentenceTemplateDAO;
+    private final EnglishParser englishParser;
 
     public ApiController(SamplePhraseDAO samplePhraseDAO, TranslationDAO translationDAO,
                          VerbDAO verbDAO, NounDAO nounDAO, GrammaticalFormDAO grammaticalFormDAO,
-                         SentenceTemplateDAO sentenceTemplateDAO) {
+                         SentenceTemplateDAO sentenceTemplateDAO, EnglishParser englishParser) {
         this.samplePhraseDAO = samplePhraseDAO;
         this.translationDAO = translationDAO;
         this.verbDAO = verbDAO;
         this.nounDAO = nounDAO;
         this.grammaticalFormDAO = grammaticalFormDAO;
         this.sentenceTemplateDAO = sentenceTemplateDAO;
+        this.englishParser = englishParser;
     }
 
-    // 1. Fuzzy search sample phrases
+    // 1. Fuzzy search sample phrases & Dynamic English Parsing
     @GetMapping("/search")
     public ResponseEntity<List<SearchResultDTO>> search(@RequestParam(value = "query", defaultValue = "") String query) {
-        List<SearchResultDTO> results = samplePhraseDAO.search(query);
+        List<SearchResultDTO> results = new ArrayList<>();
+        
+        // 1. If query is provided, check for synthetic parsed result first
+        if (query != null && !query.trim().isEmpty()) {
+            SearchResultDTO parsedResult = englishParser.parse(query);
+            if (parsedResult != null) {
+                results.add(parsedResult);
+            }
+        }
+
+        // 2. Fetch fuzzy matches from database
+        List<SearchResultDTO> dbResults = samplePhraseDAO.search(query);
+        results.addAll(dbResults);
+
         return ResponseEntity.ok(results);
     }
 

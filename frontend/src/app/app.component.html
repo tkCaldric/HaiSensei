@@ -34,7 +34,11 @@
               class="w-full text-left px-4 py-3 hover:bg-indigo-950/40 text-sm transition-colors duration-150 flex items-center justify-between"
             >
               <span class="text-slate-200 font-medium">{{ result.inputPattern }}</span>
-              <span class="text-xs text-indigo-400 bg-indigo-950/80 px-2 py-0.5 rounded-full border border-indigo-900/60">Match</span>
+              <span 
+                [class]="result.samplePhraseId === 0 ? 'text-xs text-teal-400 bg-teal-950/80 px-2 py-0.5 rounded-full border border-teal-900/60' : 'text-xs text-indigo-400 bg-indigo-950/80 px-2 py-0.5 rounded-full border border-indigo-900/60'"
+              >
+                {{ result.samplePhraseId === 0 ? 'Auto-Translate' : 'Sample' }}
+              </span>
             </button>
           }
         </div>

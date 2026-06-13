@@ -96,7 +96,7 @@ INSERT INTO verbs (id, group_id, english, dictionary_form, kanji_root, romaji_ro
 (10, 1, 'listen / ask', '聞[き]く', '聞[き]', 'ki', '聞[き]', 'ki', 'く', 'N5'),
 (11, 1, 'meet', '会[あ]う', '会[あ]', 'a', '会[あ]', 'a', 'う', 'N5'),
 (12, 1, 'wait', '待[ま]つ', '待[ま]', 'ma', '待[ま]', 'ma', 'つ', 'N5'),
-(13, 1, 'return home', '帰[かえ]る', '帰[かえ]', 'kae', '帰[かえ]', 'kaere', 'る', 'N5'); -- Godan ending in ru
+(13, 1, 'return home', '帰[かえ]る', '帰[かえ]', 'kae', '帰[かえ]', 'kaere', 'る', 'N5');
 
 -- Insert Nouns (Expanded)
 INSERT INTO nouns (id, english, japanese_form, romaji_form) VALUES
@@ -115,15 +115,18 @@ INSERT INTO nouns (id, english, japanese_form, romaji_form) VALUES
 (13, 'fish', '魚[さかな]', 'sakana'),
 (14, 'meat', '肉[にく]', 'niku');
 
--- Insert Grammatical Forms
+-- Insert Grammatical Forms (N5/N4 Expanded)
 INSERT INTO grammatical_forms (id, form_name, jlpt_level) VALUES
 (1, 'Polite Present Positive (-masu)', 'N5'),
 (2, 'Polite Present Negative (-masen)', 'N5'),
 (3, 'Polite Past Positive (-mashita)', 'N5'),
 (4, 'Polite Past Negative (-masendeshita)', 'N5'),
-(5, 'Plain Present Positive (Dictionary Form)', 'N5');
+(5, 'Plain Present Positive (Dictionary Form)', 'N5'),
+(6, 'Polite Request (-te kudasai)', 'N5'),
+(7, 'Present Continuous (-te imasu)', 'N5'),
+(8, 'Desire Form (-tai desu)', 'N5/N4');
 
--- Insert Conjugation Rules (Expanded to cover all ending types)
+-- Insert Conjugation Rules (Expanded to cover all ending types and new forms)
 -- Group 1 (Godan) Rules
 -- 1. Polite Present Positive (-masu)
 INSERT INTO conjugation_rules (form_id, group_id, applies_to_ending, stem_mutation, romaji_stem_mutation, suffix, romaji_suffix) VALUES
@@ -160,7 +163,28 @@ INSERT INTO conjugation_rules (form_id, group_id, applies_to_ending, stem_mutati
 (5, 1, 'う', 'う', 'u', '', ''),
 (5, 1, 'す', 'す', 'su', '', ''),
 (5, 1, 'つ', 'つ', 'tsu', '', ''),
-(5, 1, 'る', 'る', 'ru', '', '');
+(5, 1, 'る', 'る', 'ru', '', ''),
+-- 6. Polite Request (-te kudasai)
+(6, 1, 'む', 'ん', 'n', 'でください', 'de kudasai'),
+(6, 1, 'く', 'い', 'i', 'てください', 'te kudasai'),
+(6, 1, 'う', 'っ', 't', 'てください', 'te kudasai'),
+(6, 1, 'す', 'し', 'shi', 'てください', 'te kudasai'),
+(6, 1, 'つ', 'っ', 't', 'てください', 'te kudasai'),
+(6, 1, 'る', 'っ', 't', 'てください', 'te kudasai'),
+-- 7. Present Continuous (-te imasu)
+(7, 1, 'む', 'ん', 'n', 'でいます', 'de imasu'),
+(7, 1, 'く', 'い', 'i', 'ています', 'te imasu'),
+(7, 1, 'う', 'っ', 't', 'ています', 'te imasu'),
+(7, 1, 'す', 'し', 'shi', 'ています', 'te imasu'),
+(7, 1, 'つ', 'っ', 't', 'ています', 'te imasu'),
+(7, 1, 'る', 'っ', 't', 'ています', 'te imasu'),
+-- 8. Desire Form (-tai desu)
+(8, 1, 'む', 'み', 'mi', 'たいです', 'tai desu'),
+(8, 1, 'く', 'き', 'ki', 'たいです', 'tai desu'),
+(8, 1, 'う', 'い', 'i', 'たいです', 'tai desu'),
+(8, 1, 'す', 'し', 'shi', 'たいです', 'tai desu'),
+(8, 1, 'つ', 'ち', 'chi', 'たいです', 'tai desu'),
+(8, 1, 'る', 'り', 'ri', 'たいです', 'tai desu');
 
 -- Group 2 (Ichidan) Rules
 -- 1. Polite Present Positive (-masu)
@@ -173,7 +197,13 @@ INSERT INTO conjugation_rules (form_id, group_id, applies_to_ending, stem_mutati
 -- 4. Polite Past Negative (-masendeshita)
 (4, 2, 'る', '', '', 'ませんでした', 'masendeshita'),
 -- 5. Plain Present Positive (Dictionary Form)
-(5, 2, 'る', 'る', 'ru', '', '');
+(5, 2, 'る', 'る', 'ru', '', ''),
+-- 6. Polite Request (-te kudasai)
+(6, 2, 'る', '', '', 'てください', 'te kudasai'),
+-- 7. Present Continuous (-te imasu)
+(7, 2, 'る', '', '', 'ています', 'te imasu'),
+-- 8. Desire Form (-tai desu)
+(8, 2, 'る', '', '', 'たいです', 'tai desu');
 
 -- Group 3 (Irregular) Rules
 -- For 'する' (do)
@@ -183,18 +213,27 @@ INSERT INTO conjugation_rules (form_id, group_id, applies_to_ending, stem_mutati
 (3, 3, 'する', 'し', 'shi', 'ました', 'mashita'),
 (4, 3, 'する', 'し', 'shi', 'ませんでした', 'masendeshita'),
 (5, 3, 'する', 'する', 'suru', '', ''),
+(6, 3, 'する', 'し', 'shi', 'てください', 'te kudasai'),
+(7, 3, 'する', 'し', 'shi', 'ています', 'te imasu'),
+(8, 3, 'する', 'し', 'shi', 'たいです', 'tai desu'),
 -- For 'くる' (come)
 (1, 3, 'くる', '来[き]', 'ki', 'ます', 'masu'),
 (2, 3, 'くる', '来[き]', 'ki', 'ません', 'masen'),
 (3, 3, 'くる', '来[き]', 'ki', 'ました', 'mashita'),
 (4, 3, 'くる', '来[き]', 'ki', 'ませんでした', 'masendeshita'),
-(5, 3, 'くる', '来[く]る', 'kuru', '', '');
+(5, 3, 'くる', '来[く]る', 'kuru', '', ''),
+(6, 3, 'くる', '来[き]', 'ki', 'てください', 'te kudasai'),
+(7, 3, 'くる', '来[き]', 'ki', 'ています', 'te imasu'),
+(8, 3, 'くる', '来[き]', 'ki', 'たいです', 'tai desu');
 
--- Insert Sentence Templates
+-- Insert Sentence Templates (with new N5/N4 patterns)
 INSERT INTO sentence_templates (id, template_name, intent_category, english_structure, japanese_structure, romaji_structure) VALUES
 (1, 'Subject-Object-Verb (Standard Action)', 'transitive_action', '{subject} (Subject) does action to {object} (Object).', '{subject}は{object}を{verb}', '{subject} wa {object} o {verb}'),
 (2, 'Subject-Object-Verb (Polite/Formal focus)', 'transitive_action', 'Focus: {subject} executes action regarding {object}.', '{subject}については、{object}を{verb}', '{subject} ni tsuite wa, {object} o {verb}'),
-(3, 'Subject-Object-Verb (Emphasis on Object)', 'transitive_action', 'Emphasis: {object} is acted upon by {subject}.', '{object}は{subject}が{verb}', '{object} wa {subject} ga {verb}');
+(3, 'Subject-Object-Verb (Emphasis on Object)', 'transitive_action', 'Emphasis: {object} is acted upon by {subject}.', '{object}は{subject}が{verb}', '{object} wa {subject} ga {verb}'),
+(4, 'Polite Request (Please do...)', 'request', 'Please {verb} {object}.', '{object}を{verb}', '{object} o {verb}'),
+(5, 'Present Continuous (Am/Is doing...)', 'continuous_action', '{subject} is {verb} {object}.', '{subject}は{object}を{verb}', '{subject} wa {object} o {verb}'),
+(6, 'Desire Expression (Want to do...)', 'desire_action', '{subject} wants to {verb} {object}.', '{subject}は{object}を{verb}', '{subject} wa {object} o {verb}');
 
 -- Insert Sample Phrases (Expanded)
 INSERT INTO sample_phrases (input_pattern, template_id, subject_noun_id, object_noun_id, verb_id, grammatical_form_id) VALUES
@@ -207,4 +246,8 @@ INSERT INTO sample_phrases (input_pattern, template_id, subject_noun_id, object_
 ('I speak Japanese', 1, 1, 9, 9, 1),
 ('I listen to the teacher', 1, 1, 11, 10, 1),
 ('I meet a friend', 1, 1, 10, 11, 1),
-('I wait for the student', 1, 1, 12, 12, 1);
+('I wait for the student', 1, 1, 12, 12, 1),
+('please eat sushi', 4, 1, 7, 1, 6),
+('please write a letter', 4, 1, 5, 4, 6),
+('I am drinking tea', 5, 1, 6, 3, 7),
+('I want to read a book', 6, 1, 4, 5, 8);
