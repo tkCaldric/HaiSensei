@@ -11,6 +11,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import com.haisensei.dao.JlptVocabDAO;
+import com.haisensei.dao.JlptKanjiDAO;
+
 @SpringBootTest
 class HaisenseiApplicationTests {
 
@@ -19,6 +22,12 @@ class HaisenseiApplicationTests {
 
     @Autowired
     private EnglishParser englishParser;
+
+    @Autowired
+    private JlptVocabDAO jlptVocabDAO;
+
+    @Autowired
+    private JlptKanjiDAO jlptKanjiDAO;
 
     @Test
     void testBuildSentencePolitePresentPositive() {
@@ -113,5 +122,11 @@ class HaisenseiApplicationTests {
         assertEquals(6L, result.getObjectNounId()); // Spanish -> [Language] category
         assertEquals(9L, result.getVerbId()); // speak
         assertEquals(9L, result.getGrammaticalFormId()); // Potential form
+    }
+
+    @Test
+    void testJlptCounts() {
+        assertEquals(1349L, jlptVocabDAO.count());
+        assertEquals(245L, jlptKanjiDAO.count());
     }
 }

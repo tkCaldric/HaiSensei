@@ -22,10 +22,13 @@ public class ApiController {
     private final GrammaticalFormDAO grammaticalFormDAO;
     private final SentenceTemplateDAO sentenceTemplateDAO;
     private final EnglishParser englishParser;
+    private final JlptVocabDAO jlptVocabDAO;
+    private final JlptKanjiDAO jlptKanjiDAO;
 
     public ApiController(SamplePhraseDAO samplePhraseDAO, TranslationDAO translationDAO,
                          VerbDAO verbDAO, NounDAO nounDAO, GrammaticalFormDAO grammaticalFormDAO,
-                         SentenceTemplateDAO sentenceTemplateDAO, EnglishParser englishParser) {
+                         SentenceTemplateDAO sentenceTemplateDAO, EnglishParser englishParser,
+                         JlptVocabDAO jlptVocabDAO, JlptKanjiDAO jlptKanjiDAO) {
         this.samplePhraseDAO = samplePhraseDAO;
         this.translationDAO = translationDAO;
         this.verbDAO = verbDAO;
@@ -33,6 +36,8 @@ public class ApiController {
         this.grammaticalFormDAO = grammaticalFormDAO;
         this.sentenceTemplateDAO = sentenceTemplateDAO;
         this.englishParser = englishParser;
+        this.jlptVocabDAO = jlptVocabDAO;
+        this.jlptKanjiDAO = jlptKanjiDAO;
     }
 
     // 1. Fuzzy search sample phrases & Dynamic English Parsing
@@ -40,7 +45,7 @@ public class ApiController {
     public ResponseEntity<List<SearchResultDTO>> search(@RequestParam(value = "query", defaultValue = "") String query) {
         List<SearchResultDTO> results = new ArrayList<>();
         
-        // 1. If query is provided, check for synthetic parsed result first
+        // If query is provided, check for synthetic parsed result first
         if (query != null && !query.trim().isEmpty()) {
             SearchResultDTO parsedResult = englishParser.parse(query);
             if (parsedResult != null) {
@@ -48,7 +53,7 @@ public class ApiController {
             }
         }
 
-        // 2. Fetch fuzzy matches from database
+        // Fetch fuzzy matches from database
         List<SearchResultDTO> dbResults = samplePhraseDAO.search(query);
         results.addAll(dbResults);
 
@@ -73,6 +78,22 @@ public class ApiController {
     public ResponseEntity<List<SentenceTemplate>> findAlternatives(@PathVariable("id") Long id) {
         List<SentenceTemplate> alternatives = translationDAO.findAlternatives(id);
         return ResponseEntity.ok(alternatives);
+    }
+
+    // 4. Dictionary Lookup: JLPT Vocab Search
+    @GetMapping("/jlpt/vocab")
+    public ResponseEntity<List<JlptVocab>> searchJlptVocab(
+            @RequestParam(value = "query", defaultValue = "") String query,
+            @RequestParam(value = "level", defaultValue = "") String level) {
+        return ResponseEntity.ok(jlptVocabDAO.search(query, level));
+    }
+
+    // 5. Dictionary Lookup: JLPT Kanji Search
+    @GetMapping("/jlpt/kanji")
+    public ResponseEntity<List<JlptKanji>> searchJlptKanji(
+            @RequestParam(value = "query", defaultValue = "") String query,
+            @RequestParam(value = "level", defaultValue = "") String level) {
+        return ResponseEntity.ok(jlptKanjiDAO.search(query, level));
     }
 
     // Dropdown helpers to feed SentenceBuilder slots dynamically

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Subject } from 'rxjs';
+import { Subject, forkJoin } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { ApiService, Verb, Noun, GrammaticalForm, SentenceTemplate, SearchResultDTO, TranslationDTO } from './api.service';
+import { ApiService, Verb, Noun, GrammaticalForm, SentenceTemplate, SearchResultDTO, TranslationDTO, JlptVocab, JlptKanji } from './api.service';
 import { FuriganaPipe } from './furigana.pipe';
 
 @Component({
@@ -31,6 +31,15 @@ export class AppComponent implements OnInit {
   searchQuery: string = '';
   searchResults: SearchResultDTO[] = [];
   private searchSubject = new Subject<string>();
+
+  // JLPT reference search variables
+  jlptSearchQuery: string = '';
+  jlptSelectedLevel: string = ''; // '' for All, 'N5', 'N4'
+  jlptActiveTab: 'vocab' | 'kanji' = 'vocab';
+  jlptVocabResults: JlptVocab[] = [];
+  jlptKanjiResults: JlptKanji[] = [];
+  isJlptLoading: boolean = false;
+  private jlptSearchSubject = new Subject<{query: string, level: string}>();
 
   // Compiled result
   translationResult: TranslationDTO | null = null;
@@ -62,8 +71,33 @@ export class AppComponent implements OnInit {
       }
     });
 
-    // 3. Perform initial translation build
+    // 3. Set up RxJS debouncing for JLPT Reference Search
+    this.jlptSearchSubject.pipe(
+      debounceTime(300),
+      switchMap(params => {
+        this.isJlptLoading = true;
+        return forkJoin({
+          vocab: this.apiService.searchJlptVocab(params.query, params.level),
+          kanji: this.apiService.searchJlptKanji(params.query, params.level)
+        });
+      })
+    ).subscribe({
+      next: (results) => {
+        this.jlptVocabResults = results.vocab;
+        this.jlptKanjiResults = results.kanji;
+        this.isJlptLoading = false;
+      },
+      error: (err) => {
+        console.error('JLPT reference search error:', err);
+        this.isJlptLoading = false;
+      }
+    });
+
+    // 4. Perform initial translation build
     this.buildTranslation();
+
+    // 5. Trigger initial JLPT search to populate on start
+    this.triggerJlptSearch();
   }
 
   loadDropdownData(): void {
@@ -144,5 +178,30 @@ export class AppComponent implements OnInit {
         console.error('Alternatives error:', err);
       }
     });
+  }
+
+  // Trigger the debounced JLPT reference search
+  triggerJlptSearch(): void {
+    this.jlptSearchSubject.next({
+      query: this.jlptSearchQuery,
+      level: this.jlptSelectedLevel
+    });
+  }
+
+  // Handle keyboard/input changes on JLPT Search
+  onJlptSearchInput(value: string): void {
+    this.jlptSearchQuery = value;
+    this.triggerJlptSearch();
+  }
+
+  // Handle level filter tab changes
+  onJlptLevelChange(level: string): void {
+    this.jlptSelectedLevel = level;
+    this.triggerJlptSearch();
+  }
+
+  // Set the active tab in the JLPT dictionary view
+  setJlptActiveTab(tab: 'vocab' | 'kanji'): void {
+    this.jlptActiveTab = tab;
   }
 }

@@ -58,6 +58,19 @@ export interface TranslationDTO {
   grammaticalFormId: number;
 }
 
+export interface JlptVocab {
+  id: number;
+  kanji: string;
+  reading: string;
+  jlptLevel: string;
+}
+
+export interface JlptKanji {
+  id: number;
+  kanji: string;
+  jlptLevel: string;
+}
+
 export interface TranslationRequest {
   templateId: number;
   subjectNounId: number;
@@ -100,5 +113,13 @@ export class ApiService {
 
   getTemplates(): Observable<SentenceTemplate[]> {
     return this.http.get<SentenceTemplate[]>(`${this.baseUrl}/templates`);
+  }
+
+  searchJlptVocab(query: string, level: string): Observable<JlptVocab[]> {
+    return this.http.get<JlptVocab[]>(`${this.baseUrl}/jlpt/vocab?query=${encodeURIComponent(query)}&level=${encodeURIComponent(level)}`);
+  }
+
+  searchJlptKanji(query: string, level: string): Observable<JlptKanji[]> {
+    return this.http.get<JlptKanji[]>(`${this.baseUrl}/jlpt/kanji?query=${encodeURIComponent(query)}&level=${encodeURIComponent(level)}`);
   }
 }

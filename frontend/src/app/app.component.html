@@ -207,6 +207,183 @@
 
     </section>
 
+    <!-- JLPT N5/N4 Dictionary Reference Panel -->
+    <section class="bg-slate-900/30 border border-slate-800/60 rounded-3xl p-6 sm:p-8 backdrop-blur-md shadow-2xl flex flex-col gap-6 overflow-hidden">
+      <!-- Section Header & Tab Switcher -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/80 pb-6">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2.5">
+            <span class="p-2 bg-indigo-500/10 rounded-xl text-indigo-400 border border-indigo-500/20">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </span>
+            <h2 class="text-xl sm:text-2xl font-bold tracking-tight bg-gradient-to-r from-teal-400 to-indigo-400 bg-clip-text text-transparent">
+              JLPT N5/N4 Dictionary Reference
+            </h2>
+          </div>
+          <p class="text-xs text-slate-400">
+            Reference spelling, reading, and Kanji characters populated directly from the curriculum.
+          </p>
+        </div>
+
+        <!-- Active Tab Switcher (Vocab vs Kanji) -->
+        <div class="flex bg-slate-950/80 border border-slate-800/60 p-1.5 rounded-2xl self-start sm:self-auto">
+          <button 
+            (click)="setJlptActiveTab('vocab')" 
+            [class]="jlptActiveTab === 'vocab' ? 'bg-indigo-600/90 text-white font-semibold' : 'text-slate-400 hover:text-slate-200'" 
+            class="px-4 py-2 text-xs rounded-xl transition-all duration-200"
+          >
+            Vocabulary
+          </button>
+          <button 
+            (click)="setJlptActiveTab('kanji')" 
+            [class]="jlptActiveTab === 'kanji' ? 'bg-indigo-600/90 text-white font-semibold' : 'text-slate-400 hover:text-slate-200'" 
+            class="px-4 py-2 text-xs rounded-xl transition-all duration-200"
+          >
+            Kanji Characters
+          </button>
+        </div>
+      </div>
+
+      <!-- Search & Filter Controls -->
+      <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+        <!-- Search Input -->
+        <div class="relative w-full md:max-w-md">
+          <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </span>
+          <input 
+            type="text" 
+            [placeholder]="jlptActiveTab === 'vocab' ? 'Filter vocabulary by kana or spelling...' : 'Filter kanji...'" 
+            class="w-full bg-slate-950/80 border border-slate-800 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-950/40 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-100 placeholder-slate-500 outline-none transition duration-200"
+            [ngModel]="jlptSearchQuery"
+            (ngModelChange)="onJlptSearchInput($event)"
+          />
+        </div>
+
+        <!-- Level Filters button group -->
+        <div class="flex gap-2 self-start md:self-auto overflow-x-auto pb-1 md:pb-0 max-w-full">
+          <button 
+            (click)="onJlptLevelChange('')" 
+            [class]="jlptSelectedLevel === '' ? 'border-indigo-500 bg-indigo-500/10 text-indigo-300 font-semibold' : 'border-slate-800 bg-slate-950/40 text-slate-400 hover:border-slate-700 hover:text-slate-200'"
+            class="border px-4 py-2 rounded-xl text-xs transition-all duration-150 whitespace-nowrap"
+          >
+            All Levels
+          </button>
+          <button 
+            (click)="onJlptLevelChange('N5')" 
+            [class]="jlptSelectedLevel === 'N5' ? 'border-teal-500 bg-teal-500/10 text-teal-300 font-semibold' : 'border-slate-800 bg-slate-950/40 text-slate-400 hover:border-slate-700 hover:text-teal-200'"
+            class="border px-4 py-2 rounded-xl text-xs transition-all duration-150 whitespace-nowrap"
+          >
+            N5 Level
+          </button>
+          <button 
+            (click)="onJlptLevelChange('N4')" 
+            [class]="jlptSelectedLevel === 'N4' ? 'border-purple-500 bg-purple-500/10 text-purple-300 font-semibold' : 'border-slate-800 bg-slate-950/40 text-slate-400 hover:border-slate-700 hover:text-slate-200'"
+            class="border px-4 py-2 rounded-xl text-xs transition-all duration-150 whitespace-nowrap"
+          >
+            N4 Level
+          </button>
+        </div>
+      </div>
+
+      <!-- Results Area -->
+      <div class="relative min-h-[160px]">
+        @if (isJlptLoading) {
+          <div class="absolute inset-0 bg-slate-950/40 backdrop-blur-[1px] flex items-center justify-center rounded-2xl z-10">
+            <div class="flex flex-col items-center gap-3">
+              <div class="animate-spin rounded-full h-8 w-8 border-2 border-indigo-500 border-t-transparent"></div>
+              <span class="text-xs text-slate-400 font-medium animate-pulse">Querying Database...</span>
+            </div>
+          </div>
+        }
+
+        <!-- Tab 1: Vocabulary List -->
+        @if (jlptActiveTab === 'vocab') {
+          @if (jlptVocabResults.length === 0) {
+            <div class="flex flex-col items-center justify-center py-12 text-slate-500 text-sm">
+              <svg class="w-12 h-12 text-slate-700 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              No matching vocabulary words found.
+            </div>
+          } @else {
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-h-[350px] overflow-y-auto pr-2">
+              @for (word of jlptVocabResults; track word.id) {
+                <div class="group flex flex-col justify-between p-4 bg-slate-950/60 border border-slate-800/80 hover:border-indigo-500/60 rounded-xl transition duration-155 shadow-md">
+                  <div class="space-y-1">
+                    <div class="flex justify-between items-start gap-2">
+                      <span 
+                        [class]="word.jlptLevel === 'N5' ? 'text-[9px] font-bold text-teal-400 bg-teal-950/80 px-2 py-0.5 rounded border border-teal-900/60' : 'text-[9px] font-bold text-purple-400 bg-purple-950/80 px-2 py-0.5 rounded border border-purple-900/60'"
+                      >
+                        {{ word.jlptLevel }}
+                      </span>
+                    </div>
+                    <div class="pt-2">
+                      @if (word.kanji && word.kanji !== word.reading) {
+                        <div class="japanese-textbook text-xl font-bold text-slate-100 group-hover:text-indigo-300 transition duration-150 select-all">
+                          {{ word.kanji }}
+                        </div>
+                        <div class="text-[11px] font-mono text-slate-400 pt-0.5">
+                          {{ word.reading }}
+                        </div>
+                      } @else {
+                        <div class="japanese-textbook text-xl font-bold text-slate-100 group-hover:text-indigo-300 transition duration-150 select-all">
+                          {{ word.reading }}
+                        </div>
+                        <div class="text-[11px] font-mono text-slate-500 pt-0.5">
+                          Kana only
+                        </div>
+                      }
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+            <div class="text-[10px] text-slate-500 text-right mt-3">
+              Showing up to {{ jlptVocabResults.length }} vocabulary words
+            </div>
+          }
+        }
+
+        <!-- Tab 2: Kanji Grid -->
+        @if (jlptActiveTab === 'kanji') {
+          @if (jlptKanjiResults.length === 0) {
+            <div class="flex flex-col items-center justify-center py-12 text-slate-500 text-sm">
+              <svg class="w-12 h-12 text-slate-700 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              No matching Kanji characters found.
+            </div>
+          } @else {
+            <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-3 max-h-[350px] overflow-y-auto pr-2">
+              @for (k of jlptKanjiResults; track k.id) {
+                <div class="group flex flex-col items-center justify-between p-3.5 bg-slate-950/60 border border-slate-800/80 hover:border-indigo-500/60 rounded-xl transition duration-150 shadow-md">
+                  <span 
+                    [class]="k.jlptLevel === 'N5' ? 'text-[8px] font-bold text-teal-400 bg-teal-950/40 px-1.5 py-0.5 rounded border border-teal-900/40 self-end' : 'text-[8px] font-bold text-purple-400 bg-purple-950/40 px-1.5 py-0.5 rounded border border-purple-900/40 self-end'"
+                  >
+                    {{ k.jlptLevel }}
+                  </span>
+                  <div class="japanese-textbook text-3xl font-bold text-slate-100 group-hover:text-indigo-300 group-hover:scale-110 transition duration-150 py-2 select-all">
+                    {{ k.kanji }}
+                  </div>
+                  <span class="text-[8px] text-slate-600 font-mono">
+                    Kanji
+                  </span>
+                </div>
+              }
+            </div>
+            <div class="text-[10px] text-slate-500 text-right mt-3">
+              Showing up to {{ jlptKanjiResults.length }} Kanji characters
+            </div>
+          }
+        }
+      </div>
+    </section>
+
   </div>
 
   <!-- Footer Info -->
