@@ -22,38 +22,38 @@ class HaisenseiApplicationTests {
 
     @Test
     void testBuildSentencePolitePresentPositive() {
-        // templateId 1, subject 1 (watashi), object 2 (ringo), verb 1 (taberu), form 1 (masu)
+        // templateId 1, subject 1 (watashi), object 2 (Food), verb 1 (taberu), form 1 (masu)
         TranslationDTO result = translationDAO.buildSentence(1L, 1L, 2L, 1L, 1L);
         assertNotNull(result);
-        assertEquals("私[わたし]は林檎[りんご]を食[た]べます", result.getJapaneseResult());
-        assertEquals("watashi wa ringo o tabemasu", result.getRomajiResult());
+        assertEquals("私[わたし]は食[た]べ物[もの]を食[た]べます", result.getJapaneseResult());
+        assertEquals("watashi wa tabemono o tabemasu", result.getRomajiResult());
     }
 
     @Test
     void testBuildSentencePolitePresentNegative() {
-        // templateId 1, subject 1 (watashi), object 3 (mizu), verb 3 (nomu), form 2 (masen)
+        // templateId 1, subject 1 (watashi), object 3 (Drink), verb 3 (nomu), form 2 (masen)
         TranslationDTO result = translationDAO.buildSentence(1L, 1L, 3L, 3L, 2L);
         assertNotNull(result);
-        assertEquals("私[わたし]は水[みず]を飲[の]みません", result.getJapaneseResult());
-        assertEquals("watashi wa mizu o nomimasen", result.getRomajiResult());
+        assertEquals("私[わたし]は飲[の]み物[もの]を飲[の]みません", result.getJapaneseResult());
+        assertEquals("watashi wa nomimono o nomimasen", result.getRomajiResult());
     }
 
     @Test
     void testBuildTeFormRequest() {
-        // templateId 4 (Polite Request), object 7 (sushi), verb 1 (eat), form 6 (kudasai)
-        TranslationDTO result = translationDAO.buildSentence(4L, 1L, 7L, 1L, 6L);
+        // templateId 4 (Polite Request), object 2 (Food), verb 1 (eat), form 6 (kudasai)
+        TranslationDTO result = translationDAO.buildSentence(4L, 1L, 2L, 1L, 6L);
         assertNotNull(result);
-        assertEquals("寿司[すし]を食[た]べてください", result.getJapaneseResult());
-        assertEquals("sushi o tabete kudasai", result.getRomajiResult());
+        assertEquals("食[た]べ物[もの]を食[た]べてください", result.getJapaneseResult());
+        assertEquals("tabemono o tabete kudasai", result.getRomajiResult());
     }
 
     @Test
     void testBuildDesireForm() {
-        // templateId 6 (Desire), subject 1 (I), object 4 (book), verb 5 (read), form 8 (tai desu)
+        // templateId 6 (Desire), subject 1 (I), object 4 (Reading), verb 5 (read), form 8 (tai desu)
         TranslationDTO result = translationDAO.buildSentence(6L, 1L, 4L, 5L, 8L);
         assertNotNull(result);
-        assertEquals("私[わたし]は本[ほん]を読[よ]みたいです", result.getJapaneseResult());
-        assertEquals("watashi wa hon o yomitai desu", result.getRomajiResult());
+        assertEquals("私[わたし]は読[よ]み物[もの]を読[よ]みたいです", result.getJapaneseResult());
+        assertEquals("watashi wa yomimono o yomitai desu", result.getRomajiResult());
     }
 
     @Test
@@ -61,7 +61,7 @@ class HaisenseiApplicationTests {
         SearchResultDTO result = englishParser.parse("please write a letter");
         assertNotNull(result);
         assertEquals(4L, result.getTemplateId()); // Request template
-        assertEquals(5L, result.getObjectNounId()); // letter
+        assertEquals(5L, result.getObjectNounId()); // [Writing / Letter] category
         assertEquals(4L, result.getVerbId()); // write
         assertEquals(6L, result.getGrammaticalFormId()); // Request form (-te kudasai)
     }
@@ -71,8 +71,19 @@ class HaisenseiApplicationTests {
         SearchResultDTO result = englishParser.parse("I want to drink water");
         assertNotNull(result);
         assertEquals(6L, result.getTemplateId()); // Desire template
-        assertEquals(3L, result.getObjectNounId()); // water
+        assertEquals(3L, result.getObjectNounId()); // [Drink] category
         assertEquals(3L, result.getVerbId()); // drink
+        assertEquals(8L, result.getGrammaticalFormId()); // Desire form (-tai desu)
+    }
+
+    @Test
+    void testEnglishParserHeuristicPizza() {
+        // Test parsing an arbitrary unknown word "pizza" -> maps to Food slot (ID 2) because of the verb "eat"
+        SearchResultDTO result = englishParser.parse("I want to eat pizza");
+        assertNotNull(result);
+        assertEquals(6L, result.getTemplateId()); // Desire template
+        assertEquals(2L, result.getObjectNounId()); // mapped to [Food]
+        assertEquals(1L, result.getVerbId()); // eat
         assertEquals(8L, result.getGrammaticalFormId()); // Desire form (-tai desu)
     }
 }

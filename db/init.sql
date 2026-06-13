@@ -98,22 +98,18 @@ INSERT INTO verbs (id, group_id, english, dictionary_form, kanji_root, romaji_ro
 (12, 1, 'wait', '待[ま]つ', '待[ま]', 'ma', '待[ま]', 'ma', 'つ', 'N5'),
 (13, 1, 'return home', '帰[かえ]る', '帰[かえ]', 'kae', '帰[かえ]', 'kaere', 'る', 'N5');
 
--- Insert Nouns (Expanded)
+-- Insert Nouns (Generalised Semantic Categories)
 INSERT INTO nouns (id, english, japanese_form, romaji_form) VALUES
 (1, 'I', '私[わたし]', 'watashi'),
-(2, 'apple', '林檎[りんご]', 'ringo'),
-(3, 'water', '水[みず]', 'mizu'),
-(4, 'book', '本[ほん]', 'hon'),
-(5, 'letter', '手紙[てがみ]', 'tegami'),
-(6, 'tea', '茶[ちゃ]', 'cha'),
-(7, 'sushi', '寿司[すし]', 'sushi'),
-(8, 'movie', '映画[えいが]', 'eiga'),
-(9, 'Japanese language', '日本語[にほんご]', 'nihongo'),
-(10, 'friend', '友達[ともだち]', 'tomodachi'),
-(11, 'teacher', '先生[せんせい]', 'sensei'),
-(12, 'student', '学生[がくせい]', 'gakusei'),
-(13, 'fish', '魚[さかな]', 'sakana'),
-(14, 'meat', '肉[にく]', 'niku');
+(2, '[Food / Tabemono]', '食[た]べ物[もの]', 'tabemono'),
+(3, '[Drink / Nomimono]', '飲[の]み物[もの]', 'nomimono'),
+(4, '[Reading Material]', '読[よ]み物[もの]', 'yomimono'),
+(5, '[Writing / Letter]', '手紙[てがみ]', 'tegami'),
+(6, '[Language]', '言葉[ことば]', 'kotoba'),
+(7, '[Person]', '人[ひと]', 'hito'),
+(8, '[Media / Movie]', '映画[えいが]', 'eiga'),
+(9, '[Place / Destination]', '場所[ばしょ]', 'basho'),
+(10, '[Object / Item]', '物[もの]', 'mono');
 
 -- Insert Grammatical Forms (N5/N4 Expanded)
 INSERT INTO grammatical_forms (id, form_name, jlpt_level) VALUES
@@ -126,7 +122,7 @@ INSERT INTO grammatical_forms (id, form_name, jlpt_level) VALUES
 (7, 'Present Continuous (-te imasu)', 'N5'),
 (8, 'Desire Form (-tai desu)', 'N5/N4');
 
--- Insert Conjugation Rules (Expanded to cover all ending types and new forms)
+-- Insert Conjugation Rules
 -- Group 1 (Godan) Rules
 -- 1. Polite Present Positive (-masu)
 INSERT INTO conjugation_rules (form_id, group_id, applies_to_ending, stem_mutation, romaji_stem_mutation, suffix, romaji_suffix) VALUES
@@ -157,7 +153,7 @@ INSERT INTO conjugation_rules (form_id, group_id, applies_to_ending, stem_mutati
 (4, 1, 'す', 'し', 'shi', 'ませんでした', 'masendeshita'),
 (4, 1, 'つ', 'ち', 'chi', 'ませんでした', 'masendeshita'),
 (4, 1, 'る', 'り', 'ri', 'ませんでした', 'masendeshita'),
--- 5. Plain Present Positive (Dictionary Form) - no change
+-- 5. Plain Present Positive (Dictionary Form)
 (5, 1, 'む', 'む', 'mu', '', ''),
 (5, 1, 'く', 'く', 'ku', '', ''),
 (5, 1, 'う', 'う', 'u', '', ''),
@@ -206,7 +202,6 @@ INSERT INTO conjugation_rules (form_id, group_id, applies_to_ending, stem_mutati
 (8, 2, 'る', '', '', 'たいです', 'tai desu');
 
 -- Group 3 (Irregular) Rules
--- For 'する' (do)
 INSERT INTO conjugation_rules (form_id, group_id, applies_to_ending, stem_mutation, romaji_stem_mutation, suffix, romaji_suffix) VALUES
 (1, 3, 'する', 'し', 'shi', 'ます', 'masu'),
 (2, 3, 'する', 'し', 'shi', 'ません', 'masen'),
@@ -235,19 +230,19 @@ INSERT INTO sentence_templates (id, template_name, intent_category, english_stru
 (5, 'Present Continuous (Am/Is doing...)', 'continuous_action', '{subject} is {verb} {object}.', '{subject}は{object}を{verb}', '{subject} wa {object} o {verb}'),
 (6, 'Desire Expression (Want to do...)', 'desire_action', '{subject} wants to {verb} {object}.', '{subject}は{object}を{verb}', '{subject} wa {object} o {verb}');
 
--- Insert Sample Phrases (Expanded)
+-- Insert Sample Phrases (Generalised)
 INSERT INTO sample_phrases (input_pattern, template_id, subject_noun_id, object_noun_id, verb_id, grammatical_form_id) VALUES
-('I eat an apple', 1, 1, 2, 1, 1),
+('I eat food', 1, 1, 2, 1, 1),
 ('I watch a movie', 1, 1, 8, 2, 1),
-('I drink water', 1, 1, 3, 3, 1),
+('I drink a beverage', 1, 1, 3, 3, 1),
 ('I write a letter', 1, 1, 5, 4, 1),
-('I buy tea', 1, 1, 6, 6, 1),
+('I buy an item', 1, 1, 10, 6, 1),
 ('I read a book', 1, 1, 4, 5, 1),
-('I speak Japanese', 1, 1, 9, 9, 1),
-('I listen to the teacher', 1, 1, 11, 10, 1),
-('I meet a friend', 1, 1, 10, 11, 1),
-('I wait for the student', 1, 1, 12, 12, 1),
-('please eat sushi', 4, 1, 7, 1, 6),
+('I speak language', 1, 1, 6, 9, 1),
+('I listen to a person', 1, 1, 7, 10, 1),
+('I meet a person', 1, 1, 7, 11, 1),
+('I wait for a person', 1, 1, 7, 12, 1),
+('please eat food', 4, 1, 2, 1, 6),
 ('please write a letter', 4, 1, 5, 4, 6),
-('I am drinking tea', 5, 1, 6, 3, 7),
+('I am drinking a beverage', 5, 1, 3, 3, 7),
 ('I want to read a book', 6, 1, 4, 5, 8);

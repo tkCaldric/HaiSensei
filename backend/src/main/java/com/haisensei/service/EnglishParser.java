@@ -10,7 +10,7 @@ public class EnglishParser {
 
     // Maps inflections to Verb IDs
     private static final Map<String, Long> VERB_MAP = new HashMap<>();
-    // Maps keywords to Noun IDs
+    // Maps keywords/synonyms to Noun Category IDs
     private static final Map<String, Long> NOUN_MAP = new HashMap<>();
 
     static {
@@ -27,23 +27,38 @@ public class EnglishParser {
         putVerb(10L, "listen", "listens", "listening", "listened", "ask", "asks", "asking", "asked");
         putVerb(11L, "meet", "meets", "meeting", "met");
         putVerb(12L, "wait", "waits", "waiting", "waited");
-        putVerb(13L, "return", "returns", "returning", "returned", "go back", "goes back");
+        putVerb(13L, "return", "returns", "returning", "returned", "go back", "goes back", "go", "goes", "went", "going");
 
-        // Noun mappings
-        putNoun(1L, "i", "me", "myself");
-        putNoun(2L, "apple", "apples");
-        putNoun(3L, "water");
-        putNoun(4L, "book", "books");
-        putNoun(5L, "letter", "letters");
-        putNoun(6L, "tea");
-        putNoun(7L, "sushi");
-        putNoun(8L, "movie", "movies");
-        putNoun(9L, "japanese", "nihongo");
-        putNoun(10L, "friend", "friends");
-        putNoun(11L, "teacher", "teachers", "sensei");
-        putNoun(12L, "student", "students");
-        putNoun(13L, "fish");
-        putNoun(14L, "meat", "beef", "pork", "chicken");
+        // Noun mappings (synonyms map to the 10 generalized Category IDs)
+        putNoun(1L, "i", "me", "myself", "we", "us", "you", "he", "she", "they");
+        
+        // Category 2: Food (Tabemono)
+        putNoun(2L, "food", "tabemono", "sushi", "apple", "apples", "pizza", "rice", "bread", "burger", "burgers", 
+                "fruit", "fruits", "vegetable", "vegetables", "dinner", "lunch", "breakfast", "meal", "meals", "chocolate", "cookie");
+        
+        // Category 3: Drink (Nomimono)
+        putNoun(3L, "drink", "drinks", "beverage", "beverages", "nomimono", "water", "tea", "coffee", "juice", "milk", "beer", "soda", "wine", "boba");
+        
+        // Category 4: Reading Material
+        putNoun(4L, "book", "books", "yomimono", "novel", "novels", "manga", "magazine", "magazines", "newspaper", "newspapers", "comic", "comics");
+        
+        // Category 5: Writing / Letter
+        putNoun(5L, "letter", "letters", "tegami", "email", "emails", "message", "messages", "note", "notes", "postcard", "postcards");
+        
+        // Category 6: Language
+        putNoun(6L, "language", "languages", "kotoba", "japanese", "nihongo", "english", "spanish", "french", "german", "chinese", "korean");
+        
+        // Category 7: Person
+        putNoun(7L, "person", "people", "hito", "friend", "friends", "tomodachi", "teacher", "teachers", "sensei", "student", "students", "doctor", "doctors", "child", "children");
+        
+        // Category 8: Media
+        putNoun(8L, "movie", "movies", "eiga", "show", "shows", "video", "videos", "anime", "television", "tv");
+        
+        // Category 9: Place / Destination
+        putNoun(9L, "place", "places", "basho", "destination", "destinations", "home", "house", "school", "office", "store", "shop", "tokyo", "station", "room");
+        
+        // Category 10: Object / Item
+        putNoun(10L, "object", "objects", "item", "items", "mono", "car", "cars", "bus", "buses", "train", "bag", "bags", "phone", "phones", "computer", "computers", "ticket", "tickets", "money");
     }
 
     private static void putVerb(Long id, String... inflections) {
@@ -75,24 +90,20 @@ public class EnglishParser {
         boolean isDesire = false;
 
         // 1. Pre-detect Grammatical intent flags
-        // Check negative keywords
         for (String token : tokens) {
             if (token.equals("not") || token.equals("n") || token.equals("t") || token.equals("don") || token.equals("doesn") || token.equals("didn") || token.equals("never") || token.equals("won") || token.equals("cant")) {
                 isNegative = true;
             }
         }
 
-        // Check request keywords
         if (cleaned.contains("please") || cleaned.contains("request") || cleaned.contains("ask")) {
             isRequest = true;
         }
 
-        // Check desire keywords
         if (cleaned.contains("want") || cleaned.contains("wants") || cleaned.contains("desire") || cleaned.contains("like to")) {
             isDesire = true;
         }
 
-        // Check continuous indicators
         if (cleaned.contains(" am ") || cleaned.contains(" is ") || cleaned.contains(" are ") || cleaned.contains(" was ") || cleaned.contains(" were ")) {
             for (String token : tokens) {
                 if (token.endsWith("ing")) {
@@ -102,11 +113,9 @@ public class EnglishParser {
             }
         }
 
-        // Check past indicators
         if (cleaned.contains("yesterday") || cleaned.contains("past") || cleaned.contains("did ") || cleaned.contains("was") || cleaned.contains("were")) {
             isPast = true;
         } else {
-            // Check past verb inflections
             for (String token : tokens) {
                 if (token.equals("ate") || token.equals("saw") || token.equals("drank") || token.equals("wrote") || token.equals("read") || token.equals("bought") || token.equals("did") || token.equals("came") || token.equals("spoke") || token.equals("talked") || token.equals("listened") || token.equals("met") || token.equals("waited") || token.equals("returned") || token.equals("went")) {
                     isPast = true;
@@ -134,7 +143,6 @@ public class EnglishParser {
 
         if (hasI) {
             subjectId = 1L; // 'I'
-            // Object is the first non-I noun found
             for (Long nounId : foundNouns) {
                 if (!nounId.equals(1L)) {
                     objectId = nounId;
@@ -142,7 +150,6 @@ public class EnglishParser {
                 }
             }
         } else {
-            // If it is a Request/Command structure, first found noun is the Object!
             if (isRequest || tokens[0].equals("please") || VERB_MAP.containsKey(tokens[0])) {
                 if (!foundNouns.isEmpty()) {
                     objectId = foundNouns.get(0);
@@ -166,29 +173,52 @@ public class EnglishParser {
             }
         }
 
-        // Special check: handle multi-word phrase "go back"
         if (cleaned.contains("go back") || cleaned.contains("goes back") || cleaned.contains("went back")) {
             verbId = 13L; // return home
         }
 
-        // Fallbacks if not fully detected
+        // Fallbacks with Verb-to-Category heuristic mapping if no explicit noun was resolved
         if (subjectId == null) {
             subjectId = 1L; // Default to 'I'
         }
         if (objectId == null) {
-            objectId = 2L; // Default to 'apple'
+            if (verbId != null) {
+                if (verbId == 1L) {
+                    objectId = 2L; // eat -> [Food]
+                } else if (verbId == 2L) {
+                    objectId = 8L; // see/watch -> [Media]
+                } else if (verbId == 3L) {
+                    objectId = 3L; // drink -> [Drink]
+                } else if (verbId == 4L) {
+                    objectId = 5L; // write -> [Writing]
+                } else if (verbId == 5L) {
+                    objectId = 4L; // read -> [Reading]
+                } else if (verbId == 9L) {
+                    objectId = 6L; // speak -> [Language]
+                } else if (verbId == 10L) {
+                    objectId = 7L; // listen -> [Person]
+                } else if (verbId == 11L || verbId == 12L) {
+                    objectId = 7L; // meet / wait -> [Person]
+                } else if (verbId == 13L) {
+                    objectId = 9L; // return -> [Place]
+                } else {
+                    objectId = 10L; // default -> [Object]
+                }
+            } else {
+                objectId = 10L; // default -> [Object]
+            }
         }
         if (verbId == null) {
             verbId = 1L; // Default to 'eat'
         }
 
         // 4. Identify Grammatical Form & Template
-        long formId = 1L; // Polite Present Positive
-        long templateId = 1L; // Subject-Object-Verb (Standard Action)
+        long formId = 1L;
+        long templateId = 1L;
 
         if (isRequest) {
             formId = 6L; // Polite Request (-te kudasai)
-            templateId = 4L; // Polite Request template (Object + Verb)
+            templateId = 4L; // Polite Request template
         } else if (isContinuous) {
             formId = 7L; // Present Continuous (-te imasu)
             templateId = 5L; // Continuous template
