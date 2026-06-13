@@ -41,6 +41,19 @@ export class AppComponent implements OnInit {
   isJlptLoading: boolean = false;
   private jlptSearchSubject = new Subject<{query: string, level: string}>();
 
+  // Searchable select dropdown state variables
+  isTemplateDropdownOpen = false;
+  isSubjectDropdownOpen = false;
+  isObjectDropdownOpen = false;
+  isVerbDropdownOpen = false;
+  isGrammaticalFormDropdownOpen = false;
+
+  templateSearchQuery = '';
+  subjectSearchQuery = '';
+  objectSearchQuery = '';
+  verbSearchQuery = '';
+  grammaticalFormSearchQuery = '';
+
   // Compiled result
   translationResult: TranslationDTO | null = null;
   isLoading: boolean = false;
@@ -203,5 +216,143 @@ export class AppComponent implements OnInit {
   // Set the active tab in the JLPT dictionary view
   setJlptActiveTab(tab: 'vocab' | 'kanji'): void {
     this.jlptActiveTab = tab;
+  }
+
+  // Display Name Helpers for selected items
+  getSelectedTemplateName(): string {
+    const t = this.templates.find(x => x.id === Number(this.selectedTemplateId));
+    return t ? t.templateName.split('(')[0] : 'Select Structure';
+  }
+
+  getSelectedSubjectName(): string {
+    const n = this.nouns.find(x => x.id === Number(this.selectedSubjectId));
+    return n ? n.english : 'Select Subject';
+  }
+
+  getSelectedObjectName(): string {
+    const n = this.nouns.find(x => x.id === Number(this.selectedObjectId));
+    return n ? n.english : 'Select Object';
+  }
+
+  getSelectedVerbName(): string {
+    const v = this.verbs.find(x => x.id === Number(this.selectedVerbId));
+    return v ? v.english : 'Select Action';
+  }
+
+  getSelectedGrammaticalFormName(): string {
+    const g = this.grammaticalForms.find(x => x.id === Number(this.selectedGrammaticalFormId));
+    return g ? g.formName.split('(')[0] : 'Select Tense';
+  }
+
+  // Filtered List Helpers
+  getFilteredTemplates(): SentenceTemplate[] {
+    const q = this.templateSearchQuery.toLowerCase().trim();
+    if (!q) return this.templates;
+    return this.templates.filter(x => x.templateName.toLowerCase().includes(q));
+  }
+
+  getFilteredSubjects(): Noun[] {
+    const q = this.subjectSearchQuery.toLowerCase().trim();
+    if (!q) return this.nouns;
+    return this.nouns.filter(x => x.english.toLowerCase().includes(q));
+  }
+
+  getFilteredObjects(): Noun[] {
+    const q = this.objectSearchQuery.toLowerCase().trim();
+    if (!q) return this.nouns;
+    return this.nouns.filter(x => x.english.toLowerCase().includes(q));
+  }
+
+  getFilteredVerbs(): Verb[] {
+    const q = this.verbSearchQuery.toLowerCase().trim();
+    if (!q) return this.verbs;
+    return this.verbs.filter(x => x.english.toLowerCase().includes(q));
+  }
+
+  getFilteredGrammaticalForms(): GrammaticalForm[] {
+    const q = this.grammaticalFormSearchQuery.toLowerCase().trim();
+    if (!q) return this.grammaticalForms;
+    return this.grammaticalForms.filter(x => x.formName.toLowerCase().includes(q));
+  }
+
+  // Toggle & Control Handlers
+  toggleDropdown(type: 'template' | 'subject' | 'object' | 'verb' | 'grammaticalForm', event?: Event): void {
+    if (event) {
+      event.stopPropagation();
+    }
+    const targetState = !this.getDropdownState(type);
+    this.closeAllDropdowns();
+    this.setDropdownState(type, targetState);
+  }
+
+  private getDropdownState(type: string): boolean {
+    if (type === 'template') return this.isTemplateDropdownOpen;
+    if (type === 'subject') return this.isSubjectDropdownOpen;
+    if (type === 'object') return this.isObjectDropdownOpen;
+    if (type === 'verb') return this.isVerbDropdownOpen;
+    if (type === 'grammaticalForm') return this.isGrammaticalFormDropdownOpen;
+    return false;
+  }
+
+  private setDropdownState(type: string, value: boolean): void {
+    if (type === 'template') {
+      this.isTemplateDropdownOpen = value;
+      if (value) this.templateSearchQuery = '';
+    }
+    if (type === 'subject') {
+      this.isSubjectDropdownOpen = value;
+      if (value) this.subjectSearchQuery = '';
+    }
+    if (type === 'object') {
+      this.isObjectDropdownOpen = value;
+      if (value) this.objectSearchQuery = '';
+    }
+    if (type === 'verb') {
+      this.isVerbDropdownOpen = value;
+      if (value) this.verbSearchQuery = '';
+    }
+    if (type === 'grammaticalForm') {
+      this.isGrammaticalFormDropdownOpen = value;
+      if (value) this.grammaticalFormSearchQuery = '';
+    }
+  }
+
+  closeAllDropdowns(): void {
+    this.isTemplateDropdownOpen = false;
+    this.isSubjectDropdownOpen = false;
+    this.isObjectDropdownOpen = false;
+    this.isVerbDropdownOpen = false;
+    this.isGrammaticalFormDropdownOpen = false;
+  }
+
+  // Selection Handlers
+  selectTemplate(id: number): void {
+    this.selectedTemplateId = id;
+    this.closeAllDropdowns();
+    this.buildTranslation();
+  }
+
+  selectSubject(id: number): void {
+    this.selectedSubjectId = id;
+    this.closeAllDropdowns();
+    this.buildTranslation();
+  }
+
+  selectObject(id: number): void {
+    this.selectedObjectId = id;
+    this.closeAllDropdowns();
+    this.buildTranslation();
+  }
+
+  selectVerb(id: number): void {
+    this.selectedVerbId = id;
+    this.closeAllDropdowns();
+    this.buildTranslation();
+  }
+
+  selectGrammaticalForm(id: number): void {
+    this.selectedGrammaticalFormId = id;
+    this.closeAllDropdowns();
+    this.buildTranslation();
   }
 }

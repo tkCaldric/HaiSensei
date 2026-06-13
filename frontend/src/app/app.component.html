@@ -1,5 +1,10 @@
 <div class="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-between pb-12 selection:bg-indigo-500 selection:text-white">
   
+  <!-- Dropdown Backdrop to close on click outside -->
+  @if (isTemplateDropdownOpen || isSubjectDropdownOpen || isObjectDropdownOpen || isVerbDropdownOpen || isGrammaticalFormDropdownOpen) {
+    <div class="fixed inset-0 z-35 bg-transparent" (click)="closeAllDropdowns()"></div>
+  }
+
   <!-- Outer Wrapper for Center Constraints -->
   <div class="w-full max-w-5xl mx-auto px-6 flex-grow flex flex-col justify-center gap-8 py-10">
     
@@ -59,73 +64,208 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
         
         <!-- Template Slot -->
-        <div class="flex flex-col gap-1.5">
+        <div class="flex flex-col gap-1.5 relative">
           <label class="text-[10px] font-bold uppercase tracking-wider text-slate-500">1. Structure</label>
-          <select 
-            [(ngModel)]="selectedTemplateId" 
-            (change)="onControlChange()"
-            class="bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-3 py-2.5 text-xs text-slate-300 outline-none cursor-pointer hover:border-slate-700 transition"
+          <button 
+            (click)="toggleDropdown('template', $event)"
+            class="flex items-center justify-between w-full bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-3 py-2.5 text-xs text-slate-300 outline-none cursor-pointer hover:border-slate-700 transition text-left"
           >
-            @for (template of templates; track template.id) {
-              <option [ngValue]="template.id">{{ template.templateName.split('(')[0] }}</option>
-            }
-          </select>
+            <span class="truncate">{{ getSelectedTemplateName() }}</span>
+            <svg class="h-3 w-3 text-slate-500 ml-1.5 flex-shrink-0 transition-transform duration-200" [class.rotate-180]="isTemplateDropdownOpen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          
+          @if (isTemplateDropdownOpen) {
+            <div class="absolute z-40 top-full left-0 w-full mt-1.5 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl flex flex-col overflow-hidden max-h-56">
+              <div class="p-2 border-b border-slate-800/80 bg-slate-950/40">
+                <input 
+                  type="text" 
+                  placeholder="Filter structure..." 
+                  class="w-full bg-slate-950 border border-slate-850 rounded-lg px-2.5 py-1.5 text-xs text-slate-100 placeholder-slate-500 outline-none focus:border-indigo-500 transition"
+                  [(ngModel)]="templateSearchQuery"
+                  (click)="$event.stopPropagation()"
+                />
+              </div>
+              <div class="overflow-y-auto flex-grow max-h-40 py-1">
+                @for (template of getFilteredTemplates(); track template.id) {
+                  <button 
+                    (click)="selectTemplate(template.id)"
+                    class="w-full text-left px-3 py-2 text-xs text-slate-300 hover:bg-indigo-950/60 hover:text-indigo-200 transition-colors"
+                    [ngClass]="{ 'bg-indigo-950/40 text-indigo-400': selectedTemplateId === template.id }"
+                  >
+                    {{ template.templateName.split('(')[0] }}
+                  </button>
+                } @empty {
+                  <div class="px-3 py-2 text-xs text-slate-500 text-center">No matches</div>
+                }
+              </div>
+            </div>
+          }
         </div>
 
         <!-- Subject Slot -->
-        <div class="flex flex-col gap-1.5">
+        <div class="flex flex-col gap-1.5 relative">
           <label class="text-[10px] font-bold uppercase tracking-wider text-slate-500">2. Subject</label>
-          <select 
-            [(ngModel)]="selectedSubjectId" 
-            (change)="onControlChange()"
-            class="bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-3 py-2.5 text-xs text-slate-300 outline-none cursor-pointer hover:border-slate-700 transition"
+          <button 
+            (click)="toggleDropdown('subject', $event)"
+            class="flex items-center justify-between w-full bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-3 py-2.5 text-xs text-slate-300 outline-none cursor-pointer hover:border-slate-700 transition text-left"
           >
-            @for (noun of nouns; track noun.id) {
-              <option [ngValue]="noun.id">{{ noun.english }}</option>
-            }
-          </select>
+            <span class="truncate">{{ getSelectedSubjectName() }}</span>
+            <svg class="h-3 w-3 text-slate-500 ml-1.5 flex-shrink-0 transition-transform duration-200" [class.rotate-180]="isSubjectDropdownOpen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          
+          @if (isSubjectDropdownOpen) {
+            <div class="absolute z-40 top-full left-0 w-full mt-1.5 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl flex flex-col overflow-hidden max-h-56">
+              <div class="p-2 border-b border-slate-800/80 bg-slate-950/40">
+                <input 
+                  type="text" 
+                  placeholder="Filter subject..." 
+                  class="w-full bg-slate-950 border border-slate-850 rounded-lg px-2.5 py-1.5 text-xs text-slate-100 placeholder-slate-500 outline-none focus:border-indigo-500 transition"
+                  [(ngModel)]="subjectSearchQuery"
+                  (click)="$event.stopPropagation()"
+                />
+              </div>
+              <div class="overflow-y-auto flex-grow max-h-40 py-1">
+                @for (noun of getFilteredSubjects(); track noun.id) {
+                  <button 
+                    (click)="selectSubject(noun.id)"
+                    class="w-full text-left px-3 py-2 text-xs text-slate-300 hover:bg-indigo-950/60 hover:text-indigo-200 transition-colors"
+                    [ngClass]="{ 'bg-indigo-950/40 text-indigo-400': selectedSubjectId === noun.id }"
+                  >
+                    {{ noun.english }}
+                  </button>
+                } @empty {
+                  <div class="px-3 py-2 text-xs text-slate-500 text-center">No matches</div>
+                }
+              </div>
+            </div>
+          }
         </div>
 
         <!-- Object Slot -->
-        <div class="flex flex-col gap-1.5">
+        <div class="flex flex-col gap-1.5 relative">
           <label class="text-[10px] font-bold uppercase tracking-wider text-slate-500">3. Object</label>
-          <select 
-            [(ngModel)]="selectedObjectId" 
-            (change)="onControlChange()"
-            class="bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-3 py-2.5 text-xs text-slate-300 outline-none cursor-pointer hover:border-slate-700 transition"
+          <button 
+            (click)="toggleDropdown('object', $event)"
+            class="flex items-center justify-between w-full bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-3 py-2.5 text-xs text-slate-300 outline-none cursor-pointer hover:border-slate-700 transition text-left"
           >
-            @for (noun of nouns; track noun.id) {
-              <option [ngValue]="noun.id">{{ noun.english }}</option>
-            }
-          </select>
+            <span class="truncate">{{ getSelectedObjectName() }}</span>
+            <svg class="h-3 w-3 text-slate-500 ml-1.5 flex-shrink-0 transition-transform duration-200" [class.rotate-180]="isObjectDropdownOpen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          
+          @if (isObjectDropdownOpen) {
+            <div class="absolute z-40 top-full left-0 w-full mt-1.5 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl flex flex-col overflow-hidden max-h-56">
+              <div class="p-2 border-b border-slate-800/80 bg-slate-950/40">
+                <input 
+                  type="text" 
+                  placeholder="Filter object..." 
+                  class="w-full bg-slate-950 border border-slate-850 rounded-lg px-2.5 py-1.5 text-xs text-slate-100 placeholder-slate-500 outline-none focus:border-indigo-500 transition"
+                  [(ngModel)]="objectSearchQuery"
+                  (click)="$event.stopPropagation()"
+                />
+              </div>
+              <div class="overflow-y-auto flex-grow max-h-40 py-1">
+                @for (noun of getFilteredObjects(); track noun.id) {
+                  <button 
+                    (click)="selectObject(noun.id)"
+                    class="w-full text-left px-3 py-2 text-xs text-slate-300 hover:bg-indigo-950/60 hover:text-indigo-200 transition-colors"
+                    [ngClass]="{ 'bg-indigo-950/40 text-indigo-400': selectedObjectId === noun.id }"
+                  >
+                    {{ noun.english }}
+                  </button>
+                } @empty {
+                  <div class="px-3 py-2 text-xs text-slate-500 text-center">No matches</div>
+                }
+              </div>
+            </div>
+          }
         </div>
 
         <!-- Verb Slot -->
-        <div class="flex flex-col gap-1.5">
+        <div class="flex flex-col gap-1.5 relative">
           <label class="text-[10px] font-bold uppercase tracking-wider text-slate-500">4. Action</label>
-          <select 
-            [(ngModel)]="selectedVerbId" 
-            (change)="onControlChange()"
-            class="bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-3 py-2.5 text-xs text-slate-300 outline-none cursor-pointer hover:border-slate-700 transition"
+          <button 
+            (click)="toggleDropdown('verb', $event)"
+            class="flex items-center justify-between w-full bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-3 py-2.5 text-xs text-slate-300 outline-none cursor-pointer hover:border-slate-700 transition text-left"
           >
-            @for (verb of verbs; track verb.id) {
-              <option [ngValue]="verb.id">{{ verb.english }}</option>
-            }
-          </select>
+            <span class="truncate">{{ getSelectedVerbName() }}</span>
+            <svg class="h-3 w-3 text-slate-500 ml-1.5 flex-shrink-0 transition-transform duration-200" [class.rotate-180]="isVerbDropdownOpen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          
+          @if (isVerbDropdownOpen) {
+            <div class="absolute z-40 top-full left-0 w-full mt-1.5 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl flex flex-col overflow-hidden max-h-56">
+              <div class="p-2 border-b border-slate-800/80 bg-slate-950/40">
+                <input 
+                  type="text" 
+                  placeholder="Filter action..." 
+                  class="w-full bg-slate-950 border border-slate-850 rounded-lg px-2.5 py-1.5 text-xs text-slate-100 placeholder-slate-500 outline-none focus:border-indigo-500 transition"
+                  [(ngModel)]="verbSearchQuery"
+                  (click)="$event.stopPropagation()"
+                />
+              </div>
+              <div class="overflow-y-auto flex-grow max-h-40 py-1">
+                @for (verb of getFilteredVerbs(); track verb.id) {
+                  <button 
+                    (click)="selectVerb(verb.id)"
+                    class="w-full text-left px-3 py-2 text-xs text-slate-300 hover:bg-indigo-950/60 hover:text-indigo-200 transition-colors"
+                    [ngClass]="{ 'bg-indigo-950/40 text-indigo-400': selectedVerbId === verb.id }"
+                  >
+                    {{ verb.english }}
+                  </button>
+                } @empty {
+                  <div class="px-3 py-2 text-xs text-slate-500 text-center">No matches</div>
+                }
+              </div>
+            </div>
+          }
         </div>
 
         <!-- Grammatical Form Slot -->
-        <div class="flex flex-col gap-1.5">
+        <div class="flex flex-col gap-1.5 relative">
           <label class="text-[10px] font-bold uppercase tracking-wider text-slate-500">5. Tense</label>
-          <select 
-            [(ngModel)]="selectedGrammaticalFormId" 
-            (change)="onControlChange()"
-            class="bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-3 py-2.5 text-xs text-slate-300 outline-none cursor-pointer hover:border-slate-700 transition"
+          <button 
+            (click)="toggleDropdown('grammaticalForm', $event)"
+            class="flex items-center justify-between w-full bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-3 py-2.5 text-xs text-slate-300 outline-none cursor-pointer hover:border-slate-700 transition text-left"
           >
-            @for (form of grammaticalForms; track form.id) {
-              <option [ngValue]="form.id">{{ form.formName.split('(')[0] }}</option>
-            }
-          </select>
+            <span class="truncate">{{ getSelectedGrammaticalFormName() }}</span>
+            <svg class="h-3 w-3 text-slate-500 ml-1.5 flex-shrink-0 transition-transform duration-200" [class.rotate-180]="isGrammaticalFormDropdownOpen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          
+          @if (isGrammaticalFormDropdownOpen) {
+            <div class="absolute z-40 top-full left-0 w-full mt-1.5 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl flex flex-col overflow-hidden max-h-56">
+              <div class="p-2 border-b border-slate-800/80 bg-slate-950/40">
+                <input 
+                  type="text" 
+                  placeholder="Filter tense..." 
+                  class="w-full bg-slate-950 border border-slate-850 rounded-lg px-2.5 py-1.5 text-xs text-slate-100 placeholder-slate-500 outline-none focus:border-indigo-500 transition"
+                  [(ngModel)]="grammaticalFormSearchQuery"
+                  (click)="$event.stopPropagation()"
+                />
+              </div>
+              <div class="overflow-y-auto flex-grow max-h-40 py-1">
+                @for (form of getFilteredGrammaticalForms(); track form.id) {
+                  <button 
+                    (click)="selectGrammaticalForm(form.id)"
+                    class="w-full text-left px-3 py-2 text-xs text-slate-300 hover:bg-indigo-950/60 hover:text-indigo-200 transition-colors"
+                    [ngClass]="{ 'bg-indigo-950/40 text-indigo-400': selectedGrammaticalFormId === form.id }"
+                  >
+                    {{ form.formName.split('(')[0] }}
+                  </button>
+                } @empty {
+                  <div class="px-3 py-2 text-xs text-slate-500 text-center">No matches</div>
+                }
+              </div>
+            </div>
+          }
         </div>
 
       </div>
