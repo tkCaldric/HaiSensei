@@ -1,0 +1,217 @@
+<div class="min-h-screen bg-slate-950 text-slate-100 flex flex-col items-center justify-between pb-12 selection:bg-indigo-500 selection:text-white">
+  <!-- Header -->
+  <header class="w-full max-w-6xl px-6 py-8 flex flex-col md:flex-row md:items-center md:justify-between border-b border-slate-800/60 gap-4">
+    <div>
+      <h1 class="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent">
+        はい、先生 (Hai, Sensei)
+      </h1>
+      <p class="text-sm text-slate-400 font-medium tracking-wide mt-1 uppercase">
+        Rule-Based Japanese Sentence Synthesizer (JLPT N5/N4)
+      </p>
+    </div>
+    
+    <!-- Fuzzy Search Bar -->
+    <div class="relative w-full md:w-96">
+      <div class="flex items-center bg-slate-900 border border-slate-700/80 rounded-xl px-4 py-2.5 focus-within:border-indigo-500 focus-within:ring-2 focus-within:ring-indigo-950 transition-all duration-300">
+        <svg class="h-5 w-5 text-slate-400 mr-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        <input 
+          type="text" 
+          placeholder="Search sample phrases (e.g. eat, drink)..." 
+          class="bg-transparent border-none outline-none text-slate-100 placeholder-slate-500 text-sm w-full"
+          [(ngModel)]="searchQuery"
+          (ngModelChange)="onSearchInput($event)"
+        />
+      </div>
+
+      <!-- Search results dropdown overlay -->
+      @if (searchResults.length > 0) {
+        <div class="absolute z-50 w-full mt-2 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl max-h-60 overflow-y-auto divide-y divide-slate-800/80 backdrop-blur-md">
+          @for (result of searchResults; track result.samplePhraseId) {
+            <button 
+              (click)="selectSearchResult(result)" 
+              class="w-full text-left px-4 py-3 hover:bg-indigo-950/40 text-sm transition-colors duration-150 flex items-center justify-between"
+            >
+              <span class="text-slate-200 font-medium">{{ result.inputPattern }}</span>
+              <span class="text-xs text-indigo-400 bg-indigo-950/80 px-2 py-0.5 rounded-full border border-indigo-900/60">Match</span>
+            </button>
+          }
+        </div>
+      }
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="w-full max-w-6xl px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 my-8 flex-grow">
+    <!-- Builder Controls Panel -->
+    <section class="lg:col-span-5 bg-slate-900/40 border border-slate-800/80 rounded-2xl p-6 backdrop-blur-sm shadow-xl flex flex-col justify-between">
+      <div>
+        <h2 class="text-lg font-semibold text-slate-200 mb-6 flex items-center gap-2">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-teal-400 animate-pulse"></span>
+          Sentence Slot Builder
+        </h2>
+
+        <!-- Slots Dropdowns -->
+        <div class="space-y-5">
+          <!-- Template Slot -->
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">1. Template Structure</label>
+            <select 
+              [(ngModel)]="selectedTemplateId" 
+              (change)="onControlChange()"
+              class="w-full bg-slate-950 border border-slate-800 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 rounded-xl px-4 py-3 text-sm text-slate-200 outline-none transition duration-150 cursor-pointer"
+            >
+              @for (template of templates; track template.id) {
+                <option [value]="template.id">{{ template.templateName }}</option>
+              }
+            </select>
+          </div>
+
+          <!-- Subject Slot -->
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">2. Subject (Noun)</label>
+            <select 
+              [(ngModel)]="selectedSubjectId" 
+              (change)="onControlChange()"
+              class="w-full bg-slate-950 border border-slate-800 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 rounded-xl px-4 py-3 text-sm text-slate-200 outline-none transition duration-150 cursor-pointer"
+            >
+              @for (noun of nouns; track noun.id) {
+                <option [value]="noun.id">{{ noun.english }} ({{ noun.japaneseForm.split('[')[0] }})</option>
+              }
+            </select>
+          </div>
+
+          <!-- Object Slot -->
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">3. Object (Noun)</label>
+            <select 
+              [(ngModel)]="selectedObjectId" 
+              (change)="onControlChange()"
+              class="w-full bg-slate-950 border border-slate-800 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 rounded-xl px-4 py-3 text-sm text-slate-200 outline-none transition duration-150 cursor-pointer"
+            >
+              @for (noun of nouns; track noun.id) {
+                <option [value]="noun.id">{{ noun.english }} ({{ noun.japaneseForm.split('[')[0] }})</option>
+              }
+            </select>
+          </div>
+
+          <!-- Verb Slot -->
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">4. Action (Verb)</label>
+            <select 
+              [(ngModel)]="selectedVerbId" 
+              (change)="onControlChange()"
+              class="w-full bg-slate-950 border border-slate-800 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 rounded-xl px-4 py-3 text-sm text-slate-200 outline-none transition duration-150 cursor-pointer"
+            >
+              @for (verb of verbs; track verb.id) {
+                <option [value]="verb.id">{{ verb.english }} ({{ verb.dictionaryForm.split('[')[0] }})</option>
+              }
+            </select>
+          </div>
+
+          <!-- Grammatical Form Slot -->
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">5. Conjugation / Tense</label>
+            <select 
+              [(ngModel)]="selectedGrammaticalFormId" 
+              (change)="onControlChange()"
+              class="w-full bg-slate-950 border border-slate-800 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 rounded-xl px-4 py-3 text-sm text-slate-200 outline-none transition duration-150 cursor-pointer"
+            >
+              @for (form of grammaticalForms; track form.id) {
+                <option [value]="form.id">{{ form.formName }} [{{ form.jlptLevel }}]</option>
+              }
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-6 border-t border-slate-800/80">
+        <p class="text-xs text-slate-500 leading-relaxed">
+          * Each selection feeds directly into the database engine. Conjugation rules apply morphological updates based on verb types (Godan/Ichidan/Irregular) automatically.
+        </p>
+      </div>
+    </section>
+
+    <!-- Displays / Output Results Panel -->
+    <section class="lg:col-span-7 flex flex-col gap-6">
+      
+      <!-- Native Script Textbook Card -->
+      <div class="bg-gradient-to-br from-slate-900 to-indigo-950 border border-slate-800 rounded-3xl p-8 relative overflow-hidden shadow-2xl min-h-60 flex flex-col justify-between">
+        
+        <!-- Glow Effect background -->
+        <div class="absolute -top-24 -left-24 w-60 h-60 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -right-24 w-60 h-60 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="flex items-center justify-between mb-4 border-b border-indigo-900/40 pb-4 relative z-10">
+          <span class="text-xs font-bold tracking-widest text-teal-400 uppercase bg-teal-950/60 border border-teal-900/60 px-2.5 py-1 rounded-md">
+            Native Japanese (Furigana)
+          </span>
+          <span class="text-xs text-slate-400">Class: Textbook Stroke</span>
+        </div>
+
+        @if (isLoading) {
+          <div class="flex-grow flex items-center justify-center relative z-10 py-8">
+            <div class="animate-spin rounded-full h-8 w-8 border-2 border-indigo-500 border-t-transparent"></div>
+          </div>
+        } @else if (errorMessage) {
+          <div class="flex-grow flex items-center justify-center relative z-10 text-rose-400 text-sm font-semibold">
+            {{ errorMessage }}
+          </div>
+        } @else if (translationResult) {
+          <!-- Display Block 1: Native script (with ruby/furigana HTML replacement) -->
+          <div class="flex-grow flex items-center justify-center py-6 relative z-10">
+            <div 
+              class="japanese-textbook text-4xl sm:text-5xl md:text-6xl text-slate-100 text-center leading-[3] tracking-wide select-all"
+              [innerHTML]="translationResult.japaneseResult | furigana"
+            ></div>
+          </div>
+        }
+
+        <div class="relative z-10 mt-4 text-slate-500 text-[10px] uppercase font-bold tracking-wider text-right">
+          Interactive Stroke Font Layout
+        </div>
+      </div>
+
+      <!-- Romaji & Translation Description Block -->
+      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg space-y-5">
+        
+        <!-- Display Block 2: Romaji Pronunciation -->
+        <div>
+          <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Romaji Pronunciation</h3>
+          <div class="bg-slate-950/80 border border-slate-800/80 rounded-xl px-4 py-3.5 text-lg text-indigo-300 font-mono select-all">
+            {{ isLoading ? 'Compiling...' : (translationResult?.romajiResult || '-') }}
+          </div>
+        </div>
+
+        <!-- Display Block 3: Literal English Layout -->
+        <div>
+          <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Descriptive English Structure</h3>
+          <div class="bg-slate-950/80 border border-slate-800/80 rounded-xl px-4 py-3.5 text-sm text-slate-300 leading-relaxed">
+            {{ isLoading ? 'Compiling...' : (translationResult?.englishStructure || '-') }}
+          </div>
+        </div>
+
+        <!-- Action Button: Cycle Alternatives -->
+        <div class="pt-2">
+          <button 
+            (click)="cycleAlternatives()"
+            [disabled]="isLoading || !translationResult"
+            class="w-full flex items-center justify-center gap-2.5 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 disabled:opacity-40 disabled:pointer-events-none text-white text-sm font-semibold py-3 px-6 rounded-xl transition-all duration-200 active:scale-[0.98] shadow-lg shadow-indigo-950/45"
+          >
+            <svg class="h-4.5 w-4.5 text-indigo-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.228 5.6M7 9h8m0 0l-4-4m4 4l-4 4"/>
+            </svg>
+            Cycle Alternative Structure
+          </button>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full max-w-6xl px-6 text-center text-xs text-slate-600">
+    Designed using 100% Rule-Based SQL Concordance. No Generative AI or LLM models were harmed.
+  </footer>
+</div>

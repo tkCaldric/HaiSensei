@@ -1,0 +1,11 @@
+# Build and dependencies
+backend/target/
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+.DS_Store

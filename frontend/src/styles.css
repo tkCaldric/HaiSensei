@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: #0f172a; /* Sleek slate-900 background for modern look */
+  color: #f1f5f9;
+}
+
+.japanese-textbook {
+  font-family: 'Klee One', serif;
+}
+
+ruby {
+  ruby-position: over;
+  ruby-align: center;
+}
+
+rt {
+  font-size: 0.35em;
+  color: #38bdf8; /* light blue for textbook look */
+  letter-spacing: 0.05em;
+  padding-bottom: 0.15em;
+  user-select: none;
+}
+
+/* Beautiful custom scrollbars for dropdowns and panels */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
