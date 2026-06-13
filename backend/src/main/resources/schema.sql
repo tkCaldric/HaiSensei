@@ -82,7 +82,7 @@ INSERT INTO verb_groups (id, group_name) VALUES
 (2, 'Ichidan (Group 2)'),
 (3, 'Irregular (Group 3)');
 
--- Insert Verbs
+-- Insert Verbs (Expanded)
 INSERT INTO verbs (id, group_id, english, dictionary_form, kanji_root, romaji_root, base_stem, romaji_base_stem, last_kana_char, jlpt_level) VALUES
 (1, 2, 'eat', '食[た]べる', '食[た]', 'ta', '食[た]べ', 'tabe', 'る', 'N5'),
 (2, 2, 'see / watch', '見[み]る', '見[み]', 'mi', '見[み]', 'mi', 'る', 'N5'),
@@ -91,9 +91,14 @@ INSERT INTO verbs (id, group_id, english, dictionary_form, kanji_root, romaji_ro
 (5, 1, 'read', '読[よ]む', '読[よ]', 'yo', '読[よ]', 'yo', 'む', 'N5'),
 (6, 1, 'buy', '買[か]う', '買[か]', 'ka', '買[か]', 'ka', 'う', 'N5'),
 (7, 3, 'do', 'する', 'する', 'suru', '', '', 'する', 'N5'),
-(8, 3, 'come', '来[く]る', '来[く]', 'ku', '', '', 'くる', 'N5');
+(8, 3, 'come', '来[く]る', '来[く]', 'ku', '', '', 'くる', 'N5'),
+(9, 1, 'speak / talk', '話[はな]す', '話[はな]', 'ha', '話[はな]', 'hana', 'す', 'N5'),
+(10, 1, 'listen / ask', '聞[き]く', '聞[き]', 'ki', '聞[き]', 'ki', 'く', 'N5'),
+(11, 1, 'meet', '会[あ]う', '会[あ]', 'a', '会[あ]', 'a', 'う', 'N5'),
+(12, 1, 'wait', '待[ま]つ', '待[ま]', 'ma', '待[ま]', 'ma', 'つ', 'N5'),
+(13, 1, 'return home', '帰[かえ]る', '帰[かえ]', 'kae', '帰[かえ]', 'kaere', 'る', 'N5');
 
--- Insert Nouns
+-- Insert Nouns (Expanded)
 INSERT INTO nouns (id, english, japanese_form, romaji_form) VALUES
 (1, 'I', '私[わたし]', 'watashi'),
 (2, 'apple', '林檎[りんご]', 'ringo'),
@@ -102,7 +107,13 @@ INSERT INTO nouns (id, english, japanese_form, romaji_form) VALUES
 (5, 'letter', '手紙[てがみ]', 'tegami'),
 (6, 'tea', '茶[ちゃ]', 'cha'),
 (7, 'sushi', '寿司[すし]', 'sushi'),
-(8, 'movie', '映画[えいが]', 'eiga');
+(8, 'movie', '映画[えいが]', 'eiga'),
+(9, 'Japanese language', '日本語[にほんご]', 'nihongo'),
+(10, 'friend', '友達[ともだち]', 'tomodachi'),
+(11, 'teacher', '先生[せんせい]', 'sensei'),
+(12, 'student', '学生[がくせい]', 'gakusei'),
+(13, 'fish', '魚[さかな]', 'sakana'),
+(14, 'meat', '肉[にく]', 'niku');
 
 -- Insert Grammatical Forms
 INSERT INTO grammatical_forms (id, form_name, jlpt_level) VALUES
@@ -112,29 +123,44 @@ INSERT INTO grammatical_forms (id, form_name, jlpt_level) VALUES
 (4, 'Polite Past Negative (-masendeshita)', 'N5'),
 (5, 'Plain Present Positive (Dictionary Form)', 'N5');
 
--- Insert Conjugation Rules
+-- Insert Conjugation Rules (Expanded to cover all ending types)
 -- Group 1 (Godan) Rules
 -- 1. Polite Present Positive (-masu)
 INSERT INTO conjugation_rules (form_id, group_id, applies_to_ending, stem_mutation, romaji_stem_mutation, suffix, romaji_suffix) VALUES
 (1, 1, 'む', 'み', 'mi', 'ます', 'masu'),
 (1, 1, 'く', 'き', 'ki', 'ます', 'masu'),
 (1, 1, 'う', 'い', 'i', 'ます', 'masu'),
+(1, 1, 'す', 'し', 'shi', 'ます', 'masu'),
+(1, 1, 'つ', 'ち', 'chi', 'ます', 'masu'),
+(1, 1, 'る', 'り', 'ri', 'ます', 'masu'),
 -- 2. Polite Present Negative (-masen)
 (2, 1, 'む', 'み', 'mi', 'ません', 'masen'),
 (2, 1, 'く', 'き', 'ki', 'ません', 'masen'),
 (2, 1, 'う', 'い', 'i', 'ません', 'masen'),
+(2, 1, 'す', 'し', 'shi', 'ません', 'masen'),
+(2, 1, 'つ', 'ち', 'chi', 'ません', 'masen'),
+(2, 1, 'る', 'り', 'ri', 'ません', 'masen'),
 -- 3. Polite Past Positive (-mashita)
 (3, 1, 'む', 'み', 'mi', 'ました', 'mashita'),
 (3, 1, 'く', 'き', 'ki', 'ました', 'mashita'),
 (3, 1, 'う', 'い', 'i', 'ました', 'mashita'),
+(3, 1, 'す', 'し', 'shi', 'ました', 'mashita'),
+(3, 1, 'つ', 'ち', 'chi', 'ました', 'mashita'),
+(3, 1, 'る', 'り', 'ri', 'ました', 'mashita'),
 -- 4. Polite Past Negative (-masendeshita)
 (4, 1, 'む', 'み', 'mi', 'ませんでした', 'masendeshita'),
 (4, 1, 'く', 'き', 'ki', 'ませんでした', 'masendeshita'),
 (4, 1, 'う', 'い', 'i', 'ませんでした', 'masendeshita'),
+(4, 1, 'す', 'し', 'shi', 'ませんでした', 'masendeshita'),
+(4, 1, 'つ', 'ち', 'chi', 'ませんでした', 'masendeshita'),
+(4, 1, 'る', 'り', 'ri', 'ませんでした', 'masendeshita'),
 -- 5. Plain Present Positive (Dictionary Form) - no change
 (5, 1, 'む', 'む', 'mu', '', ''),
 (5, 1, 'く', 'く', 'ku', '', ''),
-(5, 1, 'う', 'う', 'u', '', '');
+(5, 1, 'う', 'う', 'u', '', ''),
+(5, 1, 'す', 'す', 'su', '', ''),
+(5, 1, 'つ', 'つ', 'tsu', '', ''),
+(5, 1, 'る', 'る', 'ru', '', '');
 
 -- Group 2 (Ichidan) Rules
 -- 1. Polite Present Positive (-masu)
@@ -165,17 +191,20 @@ INSERT INTO conjugation_rules (form_id, group_id, applies_to_ending, stem_mutati
 (5, 3, 'くる', '来[く]る', 'kuru', '', '');
 
 -- Insert Sentence Templates
--- The templates contain slots: {subject}, {object}, {verb}
 INSERT INTO sentence_templates (id, template_name, intent_category, english_structure, japanese_structure, romaji_structure) VALUES
 (1, 'Subject-Object-Verb (Standard Action)', 'transitive_action', '{subject} (Subject) does action to {object} (Object).', '{subject}は{object}を{verb}', '{subject} wa {object} o {verb}'),
 (2, 'Subject-Object-Verb (Polite/Formal focus)', 'transitive_action', 'Focus: {subject} executes action regarding {object}.', '{subject}については、{object}を{verb}', '{subject} ni tsuite wa, {object} o {verb}'),
 (3, 'Subject-Object-Verb (Emphasis on Object)', 'transitive_action', 'Emphasis: {object} is acted upon by {subject}.', '{object}は{subject}が{verb}', '{object} wa {subject} ga {verb}');
 
--- Insert Sample Phrases
+-- Insert Sample Phrases (Expanded)
 INSERT INTO sample_phrases (input_pattern, template_id, subject_noun_id, object_noun_id, verb_id, grammatical_form_id) VALUES
 ('I eat an apple', 1, 1, 2, 1, 1),
 ('I watch a movie', 1, 1, 8, 2, 1),
 ('I drink water', 1, 1, 3, 3, 1),
 ('I write a letter', 1, 1, 5, 4, 1),
 ('I buy tea', 1, 1, 6, 6, 1),
-('I read a book', 1, 1, 4, 5, 1);
+('I read a book', 1, 1, 4, 5, 1),
+('I speak Japanese', 1, 1, 9, 9, 1),
+('I listen to the teacher', 1, 1, 11, 10, 1),
+('I meet a friend', 1, 1, 10, 11, 1),
+('I wait for the student', 1, 1, 12, 12, 1);
