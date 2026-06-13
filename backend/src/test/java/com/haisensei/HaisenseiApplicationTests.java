@@ -86,4 +86,32 @@ class HaisenseiApplicationTests {
         assertEquals(1L, result.getVerbId()); // eat
         assertEquals(8L, result.getGrammaticalFormId()); // Desire form (-tai desu)
     }
+
+    @Test
+    void testBuildPotentialForm() {
+        // templateId 7, subject 1 (watashi), object 6 (Language), verb 9 (speak), form 9 (emasu)
+        TranslationDTO result = translationDAO.buildSentence(7L, 1L, 6L, 9L, 9L);
+        assertNotNull(result);
+        assertEquals("私[わたし]は言葉[ことば]が話[はな]せます", result.getJapaneseResult());
+        assertEquals("watashi wa kotoba ga hanasemasu", result.getRomajiResult());
+    }
+
+    @Test
+    void testBuildPermissionForm() {
+        // templateId 8, subject 1 (watashi), object 2 (Food), verb 1 (eat), form 10 (te mo ii desu)
+        TranslationDTO result = translationDAO.buildSentence(8L, 1L, 2L, 1L, 10L);
+        assertNotNull(result);
+        assertEquals("私[わたし]は食[た]べ物[もの]を食[た]べてもいいです", result.getJapaneseResult());
+        assertEquals("watashi wa tabemono o tabete mo ii desu", result.getRomajiResult());
+    }
+
+    @Test
+    void testEnglishParserPotential() {
+        SearchResultDTO result = englishParser.parse("I can speak Spanish");
+        assertNotNull(result);
+        assertEquals(7L, result.getTemplateId()); // Potential template (using ga)
+        assertEquals(6L, result.getObjectNounId()); // Spanish -> [Language] category
+        assertEquals(9L, result.getVerbId()); // speak
+        assertEquals(9L, result.getGrammaticalFormId()); // Potential form
+    }
 }

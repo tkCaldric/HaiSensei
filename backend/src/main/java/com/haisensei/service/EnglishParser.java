@@ -88,8 +88,17 @@ public class EnglishParser {
         boolean isContinuous = false;
         boolean isRequest = false;
         boolean isDesire = false;
+        boolean isPotential = false;
+        boolean isPermission = false;
 
         // 1. Pre-detect Grammatical intent flags
+        if (cleaned.contains("can") || cleaned.contains("able to") || cleaned.contains("could")) {
+            isPotential = true;
+        }
+
+        if (cleaned.contains("may") || cleaned.contains("allow") || cleaned.contains("permission")) {
+            isPermission = true;
+        }
         for (String token : tokens) {
             if (token.equals("not") || token.equals("n") || token.equals("t") || token.equals("don") || token.equals("doesn") || token.equals("didn") || token.equals("never") || token.equals("won") || token.equals("cant")) {
                 isNegative = true;
@@ -225,6 +234,12 @@ public class EnglishParser {
         } else if (isDesire) {
             formId = 8L; // Desire Form (-tai desu)
             templateId = 6L; // Desire template
+        } else if (isPotential) {
+            formId = 9L; // Polite Potential Form
+            templateId = 7L; // Potential Expression
+        } else if (isPermission) {
+            formId = 10L; // Polite Permission Form
+            templateId = 8L; // Permission Expression
         } else if (isPast) {
             if (isNegative) {
                 formId = 4L; // Polite Past Negative

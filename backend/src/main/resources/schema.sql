@@ -120,7 +120,9 @@ INSERT INTO grammatical_forms (id, form_name, jlpt_level) VALUES
 (5, 'Plain Present Positive (Dictionary Form)', 'N5'),
 (6, 'Polite Request (-te kudasai)', 'N5'),
 (7, 'Present Continuous (-te imasu)', 'N5'),
-(8, 'Desire Form (-tai desu)', 'N5/N4');
+(8, 'Desire Form (-tai desu)', 'N5/N4'),
+(9, 'Polite Potential Form (-emasu / -raremasu)', 'N4'),
+(10, 'Polite Permission (-te mo ii desu)', 'N4');
 
 -- Insert Conjugation Rules
 -- Group 1 (Godan) Rules
@@ -180,7 +182,21 @@ INSERT INTO conjugation_rules (form_id, group_id, applies_to_ending, stem_mutati
 (8, 1, 'う', 'い', 'i', 'たいです', 'tai desu'),
 (8, 1, 'す', 'し', 'shi', 'たいです', 'tai desu'),
 (8, 1, 'つ', 'ち', 'chi', 'たいです', 'tai desu'),
-(8, 1, 'る', 'り', 'ri', 'たいです', 'tai desu');
+(8, 1, 'る', 'り', 'ri', 'たいです', 'tai desu'),
+-- 9. Polite Potential Form (-emasu)
+(9, 1, 'む', 'め', 'me', 'ます', 'masu'),
+(9, 1, 'く', 'け', 'ke', 'ます', 'masu'),
+(9, 1, 'う', 'え', 'e', 'ます', 'masu'),
+(9, 1, 'す', 'せ', 'se', 'ます', 'masu'),
+(9, 1, 'つ', 'て', 'te', 'ます', 'masu'),
+(9, 1, 'る', 'れ', 're', 'ます', 'masu'),
+-- 10. Polite Permission (-te mo ii desu)
+(10, 1, 'む', 'ん', 'n', 'でもいいです', 'de mo ii desu'),
+(10, 1, 'く', 'い', 'i', 'てもいいです', 'te mo ii desu'),
+(10, 1, 'う', 'っ', 't', 'てもいいです', 'te mo ii desu'),
+(10, 1, 'す', 'し', 'shi', 'てもいいです', 'te mo ii desu'),
+(10, 1, 'つ', 'っ', 't', 'てもいいです', 'te mo ii desu'),
+(10, 1, 'る', 'っ', 't', 'てもいいです', 'te mo ii desu');
 
 -- Group 2 (Ichidan) Rules
 -- 1. Polite Present Positive (-masu)
@@ -199,7 +215,11 @@ INSERT INTO conjugation_rules (form_id, group_id, applies_to_ending, stem_mutati
 -- 7. Present Continuous (-te imasu)
 (7, 2, 'る', '', '', 'ています', 'te imasu'),
 -- 8. Desire Form (-tai desu)
-(8, 2, 'る', '', '', 'たいです', 'tai desu');
+(8, 2, 'る', '', '', 'たいです', 'tai desu'),
+-- 9. Polite Potential Form (-raremasu)
+(9, 2, 'る', 'られ', 'rare', 'ます', 'masu'),
+-- 10. Polite Permission (-te mo ii desu)
+(10, 2, 'る', '', '', 'てもいいです', 'te mo ii desu');
 
 -- Group 3 (Irregular) Rules
 INSERT INTO conjugation_rules (form_id, group_id, applies_to_ending, stem_mutation, romaji_stem_mutation, suffix, romaji_suffix) VALUES
@@ -211,6 +231,8 @@ INSERT INTO conjugation_rules (form_id, group_id, applies_to_ending, stem_mutati
 (6, 3, 'する', 'し', 'shi', 'てください', 'te kudasai'),
 (7, 3, 'する', 'し', 'shi', 'ています', 'te imasu'),
 (8, 3, 'する', 'し', 'shi', 'たいです', 'tai desu'),
+(9, 3, 'する', 'でき', 'deki', 'ます', 'masu'),
+(10, 3, 'する', 'し', 'shi', 'てもいいです', 'te mo ii desu'),
 -- For 'くる' (come)
 (1, 3, 'くる', '来[き]', 'ki', 'ます', 'masu'),
 (2, 3, 'くる', '来[き]', 'ki', 'ません', 'masen'),
@@ -219,16 +241,20 @@ INSERT INTO conjugation_rules (form_id, group_id, applies_to_ending, stem_mutati
 (5, 3, 'くる', '来[く]る', 'kuru', '', ''),
 (6, 3, 'くる', '来[き]', 'ki', 'てください', 'te kudasai'),
 (7, 3, 'くる', '来[き]', 'ki', 'ています', 'te imasu'),
-(8, 3, 'くる', '来[き]', 'ki', 'たいです', 'tai desu');
+(8, 3, 'くる', '来[き]', 'ki', 'たいです', 'tai desu'),
+(9, 3, 'くる', '来[こ]られ', 'kora', 'ます', 'masu'),
+(10, 3, 'くる', '来[き]', 'ki', 'てもいいです', 'te mo ii desu');
 
--- Insert Sentence Templates (with new N5/N4 patterns)
+-- Insert Sentence Templates
 INSERT INTO sentence_templates (id, template_name, intent_category, english_structure, japanese_structure, romaji_structure) VALUES
 (1, 'Subject-Object-Verb (Standard Action)', 'transitive_action', '{subject} (Subject) does action to {object} (Object).', '{subject}は{object}を{verb}', '{subject} wa {object} o {verb}'),
 (2, 'Subject-Object-Verb (Polite/Formal focus)', 'transitive_action', 'Focus: {subject} executes action regarding {object}.', '{subject}については、{object}を{verb}', '{subject} ni tsuite wa, {object} o {verb}'),
 (3, 'Subject-Object-Verb (Emphasis on Object)', 'transitive_action', 'Emphasis: {object} is acted upon by {subject}.', '{object}は{subject}が{verb}', '{object} wa {subject} ga {verb}'),
 (4, 'Polite Request (Please do...)', 'request', 'Please {verb} {object}.', '{object}を{verb}', '{object} o {verb}'),
 (5, 'Present Continuous (Am/Is doing...)', 'continuous_action', '{subject} is {verb} {object}.', '{subject}は{object}を{verb}', '{subject} wa {object} o {verb}'),
-(6, 'Desire Expression (Want to do...)', 'desire_action', '{subject} wants to {verb} {object}.', '{subject}は{object}を{verb}', '{subject} wa {object} o {verb}');
+(6, 'Desire Expression (Want to do...)', 'desire_action', '{subject} wants to {verb} {object}.', '{subject}は{object}を{verb}', '{subject} wa {object} o {verb}'),
+(7, 'Potential Expression (Can do...)', 'potential_action', '{subject} can {verb} {object}.', '{subject}は{object}が{verb}', '{subject} wa {object} ga {verb}'),
+(8, 'Permission Expression (May do...)', 'permission_action', '{subject} may {verb} {object}.', '{subject}は{object}を{verb}', '{subject} wa {object} o {verb}');
 
 -- Insert Sample Phrases (Generalised)
 INSERT INTO sample_phrases (input_pattern, template_id, subject_noun_id, object_noun_id, verb_id, grammatical_form_id) VALUES
@@ -245,4 +271,6 @@ INSERT INTO sample_phrases (input_pattern, template_id, subject_noun_id, object_
 ('please eat food', 4, 1, 2, 1, 6),
 ('please write a letter', 4, 1, 5, 4, 6),
 ('I am drinking a beverage', 5, 1, 3, 3, 7),
-('I want to read a book', 6, 1, 4, 5, 8);
+('I want to read a book', 6, 1, 4, 5, 8),
+('I can speak Japanese', 7, 1, 6, 9, 9),
+('you may eat food', 8, 1, 2, 1, 10);

@@ -67,7 +67,7 @@
             class="bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-3 py-2.5 text-xs text-slate-300 outline-none cursor-pointer hover:border-slate-700 transition"
           >
             @for (template of templates; track template.id) {
-              <option [value]="template.id">{{ template.templateName.split('(')[0] }}</option>
+              <option [ngValue]="template.id">{{ template.templateName.split('(')[0] }}</option>
             }
           </select>
         </div>
@@ -81,7 +81,7 @@
             class="bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-3 py-2.5 text-xs text-slate-300 outline-none cursor-pointer hover:border-slate-700 transition"
           >
             @for (noun of nouns; track noun.id) {
-              <option [value]="noun.id">{{ noun.english }}</option>
+              <option [ngValue]="noun.id">{{ noun.english }}</option>
             }
           </select>
         </div>
@@ -95,7 +95,7 @@
             class="bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-3 py-2.5 text-xs text-slate-300 outline-none cursor-pointer hover:border-slate-700 transition"
           >
             @for (noun of nouns; track noun.id) {
-              <option [value]="noun.id">{{ noun.english }}</option>
+              <option [ngValue]="noun.id">{{ noun.english }}</option>
             }
           </select>
         </div>
@@ -109,7 +109,7 @@
             class="bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-3 py-2.5 text-xs text-slate-300 outline-none cursor-pointer hover:border-slate-700 transition"
           >
             @for (verb of verbs; track verb.id) {
-              <option [value]="verb.id">{{ verb.english }}</option>
+              <option [ngValue]="verb.id">{{ verb.english }}</option>
             }
           </select>
         </div>
@@ -123,7 +123,7 @@
             class="bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-3 py-2.5 text-xs text-slate-300 outline-none cursor-pointer hover:border-slate-700 transition"
           >
             @for (form of grammaticalForms; track form.id) {
-              <option [value]="form.id">{{ form.formName.split('(')[0] }}</option>
+              <option [ngValue]="form.id">{{ form.formName.split('(')[0] }}</option>
             }
           </select>
         </div>
